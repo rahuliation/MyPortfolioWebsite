@@ -4,6 +4,9 @@ import './App.css';
 import { Home } from './Pages/Home';
 import { About } from './Pages/About';
 import { Resume } from './Pages/Resume';
+import { initializeIcons } from '@uifabric/icons';
+
+initializeIcons();
 
 const App = () => (
     <Router>

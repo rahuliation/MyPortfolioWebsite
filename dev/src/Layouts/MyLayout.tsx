@@ -1,20 +1,17 @@
 import * as React from 'react';
 import { Nav } from 'office-ui-fabric-react/lib/Nav';
-// import 'tachyons/css/tachyons.css';
+import { withRouter, RouteComponentProps } from 'react-router-dom'
+import 'office-ui-fabric-react/dist/css/fabric.min.css';
+import { Persona, PersonaSize } from 'office-ui-fabric-react/lib/Persona';
 
-export const MyLayout = (props: {children:JSX.Element}):JSX.Element => (<div>
-    {/* <ul>
-        <li>
-            <Link to="/">Home</Link>
-        </li>
-        <li>
-            <Link to="/about">About</Link>
-        </li>
-        <li>
-            <Link to="/topics">Topics</Link>
-        </li>
-    </ul> */}
-    <Nav
+const layout = ({ history, children }: { children: JSX.Element } & RouteComponentProps) => (
+  <div className="ms-Grid" dir="ltr">
+    <div className="ms-Grid-row">
+      <div className="ms-Grid-col ms-sm6 ms-md4 ms-lg2">
+        <Persona
+          size={PersonaSize.extraLarge}
+        />
+        <Nav
           groups={[
             {
               links: [
@@ -24,13 +21,21 @@ export const MyLayout = (props: {children:JSX.Element}):JSX.Element => (<div>
               ]
             }
           ]}
-          onLinkClick={(event, element: any) => {
-            history.pushState({ wowow: 'sfasfasf'}, "page 2", "about");
+          onLinkClick={(event: any, element: any) => {
+            event.preventDefault();
+            history.push(element.url);
           }}
           expandedStateText={'expanded'}
           collapsedStateText={'collapsed'}
           selectedKey={'key3'}
           expandButtonAriaLabel={'Expand or collapse'}
         />
-    {props.children}
-</div>);
+      </div>
+      <div className="ms-Grid-col ms-sm6 ms-md8 ms-lg10">
+        {children}
+      </div>
+    </div>
+  </div>
+);
+
+export const MyLayout = withRouter(layout);
