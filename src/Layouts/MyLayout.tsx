@@ -6,7 +6,11 @@ import { PrimaryButton } from 'office-ui-fabric-react/lib/Button';
 
 
 export const MenuItem = (props: any) => (
-  <Link className="f6 f5-ns ttc track link bg-animate black-80 hover-bg-lightest-blue dib pa2-ns pa1 ph4-l" to={props.path || '/'} style={{ fontFamily: 'Roboto, sans-serif' }}>
+  <Link 
+    className={`f7 f5-ns ttc track link bg-animate black-80 hover-bg-lightest-blue dib pa2-ns pa1 ph4-l`} 
+    to={props.path || '/'} 
+    style={{ fontFamily: 'Roboto, sans-serif' }}
+  >
     <div className={`${props.active ? 'b' : ''}`}>
       <Icon iconName={props.icon} className={` f3-l ${props.active ? 'b' : ''}`} /> <br />
         <span className="ttu tracked"> {props.name}</span>
