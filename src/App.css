@@ -13,7 +13,9 @@
   padding: 20px;
   color: white;
 }
-
+.bg-navy2 {
+  background: #041230;
+}
 .App-title {
   font-size: 1.5em;
 }
@@ -48,7 +50,14 @@
 
 @media only screen and (min-width: 960px) {
   .mbody {
-    padding-left: 40%;
+    padding-left: 30%;
   }
 }
 
+.profilePic {
+  border: 8px solid #c2c6ce;
+}
+
+.bg-gold2 {
+  background: #E3872D;
+}

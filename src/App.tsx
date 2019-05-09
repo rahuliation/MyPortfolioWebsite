@@ -8,6 +8,7 @@ import { About } from './Pages/About';
 import { Resume } from './Pages/Resume';
 import { Blog } from './Pages/Blog';
 import { Portfolio } from './Pages/Portfolio';
+import { Contact } from './Pages/Contact';
 
 import { initializeIcons } from '@uifabric/icons';
 
@@ -21,6 +22,7 @@ const App = () => (
         <Route exact={true} path="/resume" component={Resume} />
         <Route exact={true} path="/blog" component={Blog} />
         <Route exact={true} path="/portfolio" component={Portfolio} />
+        <Route exact={true} path="/contact" component={Contact} />
       </>
     </Router>
   );
