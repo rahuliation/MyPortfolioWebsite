@@ -61,3 +61,10 @@
 .bg-gold2 {
   background: #E3872D;
 }
+
+input:focus { 
+  outline: none;
+}
+textarea:focus { 
+  outline: none;
+}

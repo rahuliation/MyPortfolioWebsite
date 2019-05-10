@@ -3,7 +3,6 @@ import { withRouter, RouteComponentProps } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Icon } from 'office-ui-fabric-react/lib/Icon';
 
-
 const MenuItem = (props: any) => (
   <Link className={`${props.active ? 'b u bg-navy2 near-white' : ''} f7 f5-ns ttc track link bg-animate black-80 hover-white dib pa2-ns pa1 ph4-l`}
     to={props.path || '/'}
@@ -34,7 +33,7 @@ const Menu = (props: any) => (
 )
 const layout = ({ history, children, location }: { children: JSX.Element } & RouteComponentProps) => {
 
-  const { menus } = layoutHooks();
+  const { menus} = layoutHooks(history);
 
   return (
     <div className="fl w-100" dir="ltr">
@@ -71,7 +70,7 @@ const layout = ({ history, children, location }: { children: JSX.Element } & Rou
         </div>
 
       </div>
-      <div className="bg-near-white fl w-100 mbody">
+      <div className="bg-white fl w-100 mbody">
         <Menu
           menus={menus}
         />
@@ -83,7 +82,7 @@ const layout = ({ history, children, location }: { children: JSX.Element } & Rou
   );
 }
 
-const layoutHooks = () => {
+const layoutHooks = (history: any) => {
   const [menus] = React.useState([
     {
       key: 'home',
@@ -116,6 +115,7 @@ const layoutHooks = () => {
       path: '/contact',
     }
   ]);
+ 
   const [expand, setExpand] = React.useState<boolean>(true);
   return { menus, expand, setExpand }
 }
