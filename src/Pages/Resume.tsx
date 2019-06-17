@@ -4,16 +4,18 @@ import { MyLayout } from 'src/Layouts/MyLayout';
 export const Resume = () => {
   const { experiences } = ResumeHooks();
   return (<MyLayout>
-    <div className="fl w-100">
-      <div className="fl w-100 tc pl3 mv3 pv3">
-        <span className="f3 b db navy">Work Experience</span></div>
-      <div className="fl w-100  pl3">
-        <section className="timeline-section">
+    <div className="fl w-100 bg-white2">
+      <div className=" w-100 tc pl3 mv3 pv3">
+        <div className="fl w-100">
+         <span className="f3 b db navy">Work Experience</span></div>
+        </div>
+      <div className="center mw8 ph4 w-100 pv3 pl3">
+        <section className="timeline-section pv4">
           {
             experiences.map((exp: any) =>
-              (<article className="relative timeline-item ph4 pv3 glow ">
+              (<article className="relative timeline-item ph4 glow ">
                 <div className="shadow-1 timeline-body">
-                  <h1 className="f6 shadow-1 bg-navy2 white  black-60 mv0 pv3 ph3 timeline-date">{exp.timeline}</h1>
+                  <h1 className="f5 shadow-2 bg-navy2 white  black-60 mv0 pv3 ph3 timeline-date">{exp.timeline}</h1>
                   <div className="ph3 pv3 bt b--black-10 bg-white">
                     <h3 className="f4 mv0 pb1 code">{ exp.designition }</h3>
                     <h3 className="f5 mv0 pb3 black-70 code">{ exp.companyName }</h3>

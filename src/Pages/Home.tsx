@@ -2,7 +2,7 @@ import * as React from 'react';
 import { MyLayout } from 'src/Layouts/MyLayout';
 
 export const Home = () => (<MyLayout>
-    <div className="w-100 center ">
+    <div className="w-100 center bg-white2">
         <div className="sans-serif tc">
             <div className="pa4 pt5-ns ph4-l">
                 <h3 className="tc lh-title mv0">

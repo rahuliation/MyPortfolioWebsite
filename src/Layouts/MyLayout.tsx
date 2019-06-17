@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Icon } from 'office-ui-fabric-react/lib/Icon';
 
 const MenuItem = (props: any) => (
-  <Link className={`${props.active ? 'b u bg-navy2 near-white' : ''} f7 f5-ns ttc track link bg-animate black-80 hover-white dib pa2-ns pa1 ph4-l`}
+  <Link className={`${props.active ? 'b bb br-pill-l' : ''} f7 f5-ns ttc track link bg-animate black-80 dib pa2-ns pa1 ph4-l`}
     to={props.path || '/'}
     style={{
       fontFamily: 'Roboto, sans-serif'
@@ -18,8 +18,8 @@ const MenuItem = (props: any) => (
 
 
 const Menu = (props: any) => (
-  <div className="w-100 navy mmenu pv2">
-    <nav className="tc bt bb mw7 center">
+  <div className="w-100 bg-white shadow-2  navy mmenu pv2">
+    <nav className="tc mw7 center">
       {
         props.menus.map((menu: any) => (
           <MenuItem
@@ -38,7 +38,7 @@ const layout = ({ history, children, location }: { children: JSX.Element } & Rou
   return (
     <div className="fl w-100" dir="ltr">
       <div
-        className="pv3 bg-navy2 near-white pv6-l fixed w-30-l w-100 vh-100 sidebar"
+        className="pv3 bg-navy2 near-white pv6-l fixed w-25-l w-100 vh-100 sidebar"
       >
         <Link to="/">
           <div className="w4-ns w4 center mb3">
