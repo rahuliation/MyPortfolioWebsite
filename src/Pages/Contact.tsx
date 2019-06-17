@@ -13,7 +13,7 @@ export const Contact = ({ match }: { match: any }) => (
         <div className="fl w-100 pt5">
           <div className="fl w-40-l w-100">
             <span className="db pv2 f3">Contact Information</span>
-            <span className="db f6 pt3"> <span className="b pr1">Address:</span> 123 Qwerty Avenue NYC, USA </span>
+            <span className="db f6 pt3"> <span className="b pr1">Address:</span> 123 Qwerty Avenue NYC, USA </span>ResumeResume
             <span className="db f6 pt3"><span className="b pr1">Phone:</span>+77 022 177 05 05</span>
             <span className="db f6 pt3"><span className="b pr1">Email:</span>example@gmail.com</span>
             <span className="db f6 pt3"><span className="b pr1">Website:</span>www.yourdomain.co</span>

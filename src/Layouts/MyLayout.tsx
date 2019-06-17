@@ -18,7 +18,7 @@ const MenuItem = (props: any) => (
 
 
 const Menu = (props: any) => (
-  <div className="w-100  bg-gold navy mmenu pv2">
+  <div className="w-100 navy mmenu pv2">
     <nav className="tc bt bb mw7 center">
       {
         props.menus.map((menu: any) => (
@@ -33,16 +33,12 @@ const Menu = (props: any) => (
 )
 const layout = ({ history, children, location }: { children: JSX.Element } & RouteComponentProps) => {
 
-  const { menus} = layoutHooks(history);
+  const { menus } = layoutHooks(history);
 
   return (
     <div className="fl w-100" dir="ltr">
       <div
-        className="pv3 bg-navy2 near-white pv6-l fixed w-30-l w-100"
-        style={{
-          minHeight: '100vh',
-        }
-        }
+        className="pv3 bg-navy2 near-white pv6-l fixed w-30-l w-100 vh-100 sidebar"
       >
         <Link to="/">
           <div className="w4-ns w4 center mb3">
@@ -56,11 +52,11 @@ const layout = ({ history, children, location }: { children: JSX.Element } & Rou
 
         </Link>
         <br />
-        <div className="tc absolute sans-serif w-100" style={{ bottom: '5rem' }}>
-          <a href={process.env.REACT_APP_CV_DOWNLOAD_PDF} className="ph3 db pv2 b bb br shadow-2 button bg-gold2 near-white f6">
-            <i className='im im-download f7' /> DOWNLOAD CV
-          </a>
-        </div>
+        <a href={process.env.REACT_APP_CV_DOWNLOAD_PDF}
+          className="ph3 tc absolute sans-serif w-100 db pv2 b bb br shadow-2 button bg-gold2 near-white f6"
+          style={{ bottom: '5rem' }}>
+          <i className='im im-download f7' /> DOWNLOAD CV
+        </a>
         <div className="absolute f6 bottom-2-l bottom-0 tc w-100">
           <a href="https://facebook.com/rahuliation" target="_blank" > <i className='im im-facebook f5 pr3' /></a>
           <a href="https://twitter.com/rahuliation" target="_blank"> <i className='im im-twitter f5 pr3' /></a>
@@ -91,10 +87,10 @@ const layoutHooks = (history: any) => {
       path: '/',
     },
     {
-      key: 'about',
-      name: 'About',
+      key: 'resume',
+      name: 'Resume',
       icon: 'info',
-      path: '/about',
+      path: '/resume',
     },
     {
       key: 'blog',
@@ -115,7 +111,7 @@ const layoutHooks = (history: any) => {
       path: '/contact',
     }
   ]);
- 
+
   const [expand, setExpand] = React.useState<boolean>(true);
   return { menus, expand, setExpand }
 }

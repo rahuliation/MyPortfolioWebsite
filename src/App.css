@@ -68,3 +68,67 @@ input:focus {
 textarea:focus { 
   outline: none;
 }
+
+.sidebar:after {
+  content: "";
+  background: url(/desktop.png);
+  opacity: .12;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.timeline-item:after {
+  width: 10px;
+  height: 10px;
+  display: block;
+  top: 1em;
+  position: absolute;
+  left: -13px;
+  border-radius: 10px;
+  content: "";
+  border: 5px solid #122754;
+  background: #fff;
+}
+
+.timeline-item .timeline-body {
+  margin-top: -1rem;
+}
+
+.timeline-item .timeline-date {
+  margin-left: -.8rem;
+}
+.timeline-item .timeline-date:before {
+  content: "";
+  position: absolute;
+  width: 1.2rem;
+  height: 5px;
+  background: #122754;
+  top: 23px;
+  left: 0;
+}
+
+.timeline-section {
+  border-left: 5px solid #122754;
+  position: relative;
+}
+
+.timeline-section::after, .timeline-section::before {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 5px;
+  background: #122754;
+}
+
+.timeline-section::before {
+  top: 0;
+  left: -10px;
+}
+.timeline-section::after {
+  bottom: 0;
+  left: -10px;
+}
