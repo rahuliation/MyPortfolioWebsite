@@ -38,7 +38,7 @@ const layout = ({ history, children, location }: { children: JSX.Element } & Rou
   return (
     <div className="fl w-100" dir="ltr">
       <div
-        className="pv3 bg-navy2 near-white pv6-l fixed w-25-l w-100 vh-100 sidebar"
+        className="pv4 bg-navy2 near-white pv6-l fixed w-25-l w-100 vh-100 sidebar"
       >
         <Link to="/">
           <div className="w4-ns w4 center mb3">
