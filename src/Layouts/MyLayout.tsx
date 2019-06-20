@@ -4,11 +4,9 @@ import { Link } from 'react-router-dom'
 import { Icon } from 'office-ui-fabric-react/lib/Icon';
 
 const MenuItem = (props: any) => (
-  <Link className={`${props.active ? 'b bb br-pill-l' : ''} f7 f5-ns ttc track link bg-animate black-80 dib pa2-ns pa1 ph4-l`}
+  <Link className={`${props.active ? 'b menuActive primary' : 'mid-gray glow pointer'} f6 f5-ns ttc track link bg-animate dib pa2-ns pa1 ph4-l`}
     to={props.path || '/'}
-    style={{
-      fontFamily: 'Roboto, sans-serif'
-    }}>
+   >
     <div className={`b`}>
       <Icon iconName={props.icon} className="f3-l" /> <br />
       <span className="ttu tracked"> {props.name}</span>
@@ -36,7 +34,7 @@ const layout = ({ history, children, location }: { children: JSX.Element } & Rou
   const { menus } = layoutHooks(history);
 
   return (
-    <div className="fl w-100" dir="ltr">
+    <div className="fl w-100 bg-white2" dir="ltr">
       <div
         className="pv4 bg-navy2 near-white pv6-l fixed w-25-l w-100 vh-100 sidebar"
       >
@@ -53,20 +51,20 @@ const layout = ({ history, children, location }: { children: JSX.Element } & Rou
         </Link>
         <br />
         <a href={process.env.REACT_APP_CV_DOWNLOAD_PDF}
-          className="ph3 tc absolute sans-serif w-100 db pv2 b bb br shadow-2 button bg-gold2 near-white f6"
+          className="ph3 hover-light-yellow tc absolute sans-serif w-100 db pv2 b bb br button near-white f5"
           style={{ bottom: '5rem' }}>
           <i className='im im-download f7' /> DOWNLOAD CV
         </a>
         <div className="absolute f6 bottom-2-l bottom-0 tc w-100">
-          <a href="https://facebook.com/rahuliation" target="_blank" > <i className='im im-facebook f5 pr3' /></a>
-          <a href="https://twitter.com/rahuliation" target="_blank"> <i className='im im-twitter f5 pr3' /></a>
-          <a href="https://github.com/rahuliation" target="_blank"> <i className='im im-github f5 pr3' /></a>
-          <a href="mailto:mail@rahul.com.bd?Subject=Hello" target="_blank"> <i className='im im-mail f5 pr3' /></a>
-          <a href="skype:rahul.workspace@gmail.com?call" target="_blank"> <i className='im im-skype f5 pr3' /> </a> <br /> <br />
+          <a href="https://facebook.com/rahuliation" target="_blank" > <i className='hover-light-yellow im im-facebook f5 pr3' /></a>
+          <a href="https://twitter.com/rahuliation" target="_blank"> <i className='hover-light-yellow im im-twitter f5 pr3' /></a>
+          <a href="https://github.com/rahuliation" target="_blank"> <i className='hover-light-yellow im im-github f5 pr3' /></a>
+          <a href="mailto:mail@rahul.com.bd?Subject=Hello" target="_blank"> <i className='hover-light-yellow im im-mail f5 pr3' /></a>
+          <a href="skype:rahul.workspace@gmail.com?call" target="_blank"> <i className='hover-light-yellow im im-skype f5 pr3' /> </a> <br /> <br />
         </div>
 
       </div>
-      <div className="bg-white fl w-100 mbody">
+      <div className="fl w-100 mbody bg-white2">
         <Menu
           menus={menus}
         />

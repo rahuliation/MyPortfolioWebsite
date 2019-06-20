@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import './App.css';
 import './assets/css/iconmonstr-iconic-font.css';
+import './assets/css/gotham/style.css';
+import './App.css';
+
 import 'office-ui-fabric-react/dist/css/fabric.min.css';
 import { Home } from './Pages/Home';
 import { Resume } from './Pages/Resume';
