@@ -6,10 +6,8 @@ export const Resume = () => {
   return (<MyLayout>
     <div className="fl w-100 gotham primary pb4 ph3">
       <div className="cf center w-100 bg-white br4 shadow-2 mt4 pv3 mw-custom">
-        <div className="fl w-100 tc mv3 pv4">
-          <div className="fl w-100">
-            <span className="f2 b db grow">Work Experience</span>
-          </div>
+        <div className="fl w-100 tc mv3 pt5">
+            <span className="f2-ns f3 b db grow">Work Experience</span>
         </div>
         <div className="fl pl4 w-100 pv3">
           <section className="timeline-section pv4">
@@ -24,8 +22,8 @@ export const Resume = () => {
                       </span>
                     </span>
                     <div className="ph3 pv3 bt b--black-10 bg-white">
-                      <span className="db f3-l f4 pb2 b">{exp.designition}</span>
-                      <span className="dt f5-l f6 pb1 b mid-gray">
+                      <span className="db f3-ns f5 pb2 b">{exp.designition}</span>
+                      <span className="dt f5-l f7 pb1 b mid-gray">
                         <span className="dtc  pr1 v-mid"> <i className="im im-bank f5" /> </span>
                         <a className="dtc v-mid code" href={exp.link} target="_blank">{exp.companyName}</a>
                       </span>
@@ -45,10 +43,8 @@ export const Resume = () => {
       </div>
 
       <div className="cf center w-100 br4 bg-white shadow-2 pv3 mt4 mw-custom">
-        <div className="fl w-100 tc mv3 pv4">
-          <div className="fl w-100">
-            <span className="f2 b db grow">Educational Qualification</span>
-          </div>
+        <div className="fl w-100 tc pt5">
+            <span className="f2-ns f3 b db grow">Educational Qualification</span>
         </div>
         <div className="fl pl4 w-100 pv3">
           <section className="timeline-section pv4">
@@ -63,13 +59,12 @@ export const Resume = () => {
                       </span>
                     </span>
                     <div className="ph3 pv3 bt b--black-10 bg-white">
-                      <span className="db f3-l f4 pb2 b">{edu.degree}</span>
-                      <span className="dt f5-l f6 pb1 b mid-gray">
+                      <span className="db f3-ns f5 pb2 b">{edu.degree}</span>
+                      <span className="dt f5-l f7 pb1 b mid-gray">
                         <span className="dtc  pr1 v-mid"> <i className="im im-bank f5" /> </span>
                         <a className="dtc v-mid code" href={edu.link} target="_blank">{edu.institute}</a>
                       </span>
-                      <p className="f6 pv2 f5-ns mv0 lh-copy justify">
-
+                      <p className="f7 pv3 f5-ns mv0 lh-copy ">
                         {
                           edu.result ? (
                             <span className="dt">

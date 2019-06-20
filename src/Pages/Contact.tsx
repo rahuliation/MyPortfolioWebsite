@@ -11,7 +11,7 @@ export const Contact = ({ match }: { match: any }) => (
         </div>
         <div className="fl w-100 mt4">
           <div className="fl w-50-l w-100">
-            <span className="db tracked pv2 b mid-gray f3">Contact Information</span>
+            <span className="db tracked pv2 b mid-gray f3 bb w-70 b--mid-gray">Contact Information</span>
             <p className="f5 gotham pl3  mid-gray">
               <span className="db pt3">
                 <span className="b pr1">Address:</span>Uttara, Dhaka</span>
@@ -25,7 +25,7 @@ export const Contact = ({ match }: { match: any }) => (
             </p>
           </div>
           <div className="fl w-50-l w-100 mid-gray">
-            <span className="db pv2 b mid-gray f3">Send Message</span>
+            <span className="db pv2 tracked bb mid-gray f3 b w-70 b--mid-gray">Send Me Message</span>
             <form action="sign-up_submit" method="get" accept-charset="utf-8">
               <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
                 <div className="mt3">
@@ -47,7 +47,7 @@ export const Contact = ({ match }: { match: any }) => (
                 </div>
               </fieldset>
               <div className="mt3">
-                <button className="b br3 ph4 bg-navy white pv3 input-reset ba bg-transparent mid-gray grow pointer f5" type="submit">Send Mesage</button>
+                <button className="b br3 ph4 bg-navy2 white pv3 input-reset ba grow pointer f5" type="submit">Send Mesage</button>
               </div>
             </form>
           </div>

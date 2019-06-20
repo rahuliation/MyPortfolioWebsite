@@ -22,6 +22,11 @@
   border: #2a2f4a;
   /* background: #041230; */
 }
+
+.vh-70 {
+  height: 70vh;
+  /* background: #041230; */
+}
 .menuActive{
   position: relative;
 }

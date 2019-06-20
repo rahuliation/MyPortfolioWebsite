@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Icon } from 'office-ui-fabric-react/lib/Icon';
 
 const MenuItem = (props: any) => (
-  <Link className={`${props.active ? 'b menuActive primary' : 'mid-gray glow pointer'} f6 f5-ns ttc track link bg-animate dib pa2-ns pa1 ph4-l`}
+  <Link className={`${props.active ? 'b menuActive primary' : 'mid-gray glow pointer'} f6 f5-ns ttc tracked-mega link dib pv2-ns ph4-ns pv1 ph2`}
     to={props.path || '/'}
    >
     <div className={`b`}>
@@ -90,18 +90,18 @@ const layoutHooks = (history: any) => {
       icon: 'info',
       path: '/resume',
     },
-    {
-      key: 'blog',
-      name: 'Blog',
-      icon: 'Handwriting',
-      path: '/blog',
-    },
-    {
-      key: 'portfolio',
-      name: 'Portfolio',
-      icon: 'Work',
-      path: '/portfolio',
-    },
+    // {
+    //   key: 'blog',
+    //   name: 'Blog',
+    //   icon: 'Handwriting',
+    //   path: '/blog',
+    // },
+    // {
+    //   key: 'portfolio',
+    //   name: 'Portfolio',
+    //   icon: 'Work',
+    //   path: '/portfolio',
+    // },
     {
       key: 'contact',
       name: 'Contact',
