@@ -1,13 +1,38 @@
 import * as React from 'react';
-import { MyLayout } from 'src/Layouts/MyLayout';
 
 export const Resume = () => {
   const { experiences, educations } = ResumeHooks();
-  return (<MyLayout>
-    <div className="fl w-100 gotham primary pb4 ph3">
+  return (
+    <div className="fl w-100 gotham primary pb4 ph3-ns ph2">
       <div className="cf center w-100 bg-white br4 shadow-2 mt4 pv3 mw-custom">
-        <div className="fl w-100 tc mv3 pt5">
-            <span className="f2-ns f3 b db grow">Work Experience</span>
+        <div className="fl w-100 tc mv3 pt4">
+          <span className="f2-ns f3 db grow gothamMedium fw7">Skills</span>
+        </div>
+        <p className="pl4 mt2">
+            <ul className="list pl0">
+              <li> ■ NodeJS, ExpressJS, FeatherJS, SQLize, ES6, Gulp, Webpack, Promise</li>
+              <li> ■ ReactJS, Mobx, Mobx State Tree, Recompose, Redux</li>
+              <li> ■ VueJS, Vuex, Vue-Material </li>
+              <li> ■ Ruby on Rails with many Ruby gem like CanCan, Devise, Carrierwave</li>
+              <li> ■ Laravel With its External Packages.</li>
+              <li> ■ Google map API, Distance Matrix API, Place API, Direction API,
+            SSL E-commerce, Alipay, Stripe, SSLWirless Sms gateway. Youtube data API, Firebase Push Notification</li>
+              <li> ■ Laravel With its External Packages.</li>
+              <li> ■ CakePHP, bake Console. </li>
+              <li> ■ RESTFUL API, 0Auth, Auth2, WebSocket, Graphql</li>
+              <li> ■ Curl, Request Tols, Data Scrapping</li>
+              <li> ■ JSON, XML data representation</li>
+              <li> ■ MongoDB, Mysql, PostgreSQL, DynamoDB, Redis</li>
+              <li> ■ DigitalOcean, VPS Maintenance, Heroku CLoud, SSH Connection, FTP/SFTP, DNS Server Setup</li>
+              <li> ■ Docker, Vagrant, Git, ,Trello, Slack and many DevOps Tools</li>
+              <li> ■ Object Oriented Concept, Object Oriented Design</li>
+              <li> ■ Deepin(regular user), Fedora, CentOS, Ubuntu, OpenSUSE.</li>
+            </ul>
+        </p>
+      </div>
+      <div className="cf center w-100 bg-white br4 shadow-2 mt4 pv3 mw-custom">
+        <div className="fl w-100 tc mv3 pt4">
+          <span className="f2-ns f3 gothamMedium fw7 db grow">Work Experience</span>
         </div>
         <div className="fl pl4 w-100 pv3">
           <section className="timeline-section pv4">
@@ -43,8 +68,8 @@ export const Resume = () => {
       </div>
 
       <div className="cf center w-100 br4 bg-white shadow-2 pv3 mt4 mw-custom">
-        <div className="fl w-100 tc pt5">
-            <span className="f2-ns f3 b db grow">Educational Qualification</span>
+        <div className="fl w-100 tc mv3 pt4">
+          <span className="f2-ns f3 gothamMedium fw7 db grow">Educational Qualification</span>
         </div>
         <div className="fl pl4 w-100 pv3">
           <section className="timeline-section pv4">
@@ -98,7 +123,6 @@ export const Resume = () => {
         </div>
       </div>
     </div>
-  </MyLayout>
   );
 };
 

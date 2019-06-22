@@ -1,12 +1,15 @@
 import * as React from 'react';
-import { MyLayout } from 'src/Layouts/MyLayout';
+import fetch from 'unfetch'
 
-export const Contact = ({ match }: { match: any }) => (
-  <MyLayout>
-    <div className="fl w-100 gotham primary pb4 ph3">
+
+export const Contact = ({ match }: { match: any }) => {
+  const { name, setName, email, setEmail,
+    phone, setPhone, message, setMessage, sendMessage } = contactHook();
+  return (
+    <div className="fl w-100 gotham primary pb4 ph3-ns ph2">
       <div className="cf bg-white shadow-2 br4 center pv5 ph4 mt4 mw-custom">
         <div className="fl w-100 bl bw3 pl3 pv3 primary">
-          <span className="f1-l f2 fw7 db navy">CONTACT ME </span>
+          <span className="f1-l f2 fw7 db navy gothamMedium">CONTACT ME </span>
           <span className="f4 db navy">Get in touch with me</span>
         </div>
         <div className="fl w-100 mt4">
@@ -30,29 +33,98 @@ export const Contact = ({ match }: { match: any }) => (
               <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
                 <div className="mt3">
                   <span className="db pb2 fw5">Your Name: </span>
-                  <input className="w-100 pa2 input-reset bg-transparent form-control" placeholder="Enter your name" type="text" name="name" />
+                  <input
+                    value={name}
+                    onChange={e => setName(e.target.value)}
+                    className="w-100 pa2 input-reset bg-transparent form-control"
+                    placeholder="Enter your name"
+                    type="text"
+                    name="name"
+                  />
                 </div>
                 <div className="mt3">
                   <span className="db pb2">Your Email Address: </span>
-                  <input className="w-100 pa2 input-reset bg-transparent form-control" type="email" name="email" placeholder="Enter your email" />
+                  <input
+                    className="w-100 pa2 input-reset bg-transparent form-control"
+                    type="email"
+                    name="_replyto"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                  />
                 </div>
                 <div className="mt3">
                   <span className="db pb2">Your Phone Number: </span>
-                  <input className="w-100 pa2 input-reset bg-transparent form-control" type="text" name="phone" placeholder="Enter your phone number" />
+                  <input
+                    className="w-100 pa2 input-reset bg-transparent form-control"
+                    type="text"
+                    pattern="[0-9]"
+                    name="phone"
+                    value={phone}
+                    onChange={e => setPhone(e.target.value)}
+                    placeholder="Enter your phone number"
+                  />
                 </div>
                 <div className="mt3">
                   <span className="db pb2">Any Message </span>
-                  <textarea className="w-100 pa2 input-reset bg-transparent form-control" name="message" placeholder="Write your message" 
-                    cols={30} />
+                  <textarea
+                    className="w-100 pa2 input-reset bg-transparent form-control"
+                    name="message"
+                    placeholder="Write your message"
+                    cols={30}
+                    value={message}
+                    onChange={e => setMessage(e.target.value)}
+                  />
                 </div>
               </fieldset>
               <div className="mt3">
-                <button className="b br3 ph4 bg-navy2 white pv3 input-reset ba grow pointer f5" type="submit">Send Mesage</button>
+                <button
+                  className="b br3 ph4 bg-navy2 white pv3 hover-bg-white  hover-navy input-reset ba grow pointer f5"
+                  type="button"
+                  onClick={sendMessage}
+                >
+                  Send Mesage
+                </button>
               </div>
             </form>
           </div>
         </div>
       </div>
     </div>
-  </MyLayout>
-);
+  )
+};
+
+
+const contactHook = () => {
+  const [name, setName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [message, setMessage] = React.useState('');
+  const [phone, setPhone] = React.useState('');
+
+  const sendMessage = async () => {
+    const data  =  { name, _replyto: email, phone, message, _after: 'https://www.rahul.com.bd/contact' };
+    try {
+      const res = await fetch('https://mailthis.to/rahul.workspace@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      const lol = await res.text(); 
+      // tslint:disable-next-line:no-console
+      location.href = 'https://mailthis.to/confirm'
+
+      // tslint:disable-next-line:no-console
+      console.log(lol);
+
+    } catch (error) {
+      // tslint:disable-next-line:no-console
+      console.log(error);
+    }
+  }
+  return {
+    name, setName, email, setEmail,
+    phone, setPhone, message, setMessage , sendMessage
+  };
+}

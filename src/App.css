@@ -195,8 +195,12 @@ textarea:focus {
   font-family: Gotham Book
 }
 
+.gothamMedium {
+  font-family: 'Gotham Bold'
+}
+
 p {
-  font-family: Gotham Book;
+  font-family: 'Gotham Book';
   font-weight: 400;
   line-height: 1.6;
   letter-spacing: 0;
