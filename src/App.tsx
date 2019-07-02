@@ -1,12 +1,11 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import './assets/css/iconmonstr-iconic-font.css';
 import './assets/css/gotham/style.css';
 import './assets/css/animate.css';
 import { MyLayout } from 'src/Layouts/MyLayout';
 import './App.css';
 
-import 'office-ui-fabric-react/dist/css/fabric.min.css';
+import './assets/css/unicons.css';
 import { Home } from './Pages/Home';
 import { Resume } from './Pages/Resume';
 import { CV } from './Pages/CV';
@@ -14,11 +13,6 @@ import { Blog } from './Pages/Blog';
 import { Portfolio } from './Pages/Portfolio';
 import { Contact } from './Pages/Contact';
 import { NotFound } from './Pages/NotFound';
-
-
-import { initializeIcons } from '@uifabric/icons';
-
-initializeIcons();
 
 const layoutHOC = (Component: any): any => () => (
   <MyLayout >

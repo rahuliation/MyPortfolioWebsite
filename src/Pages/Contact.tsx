@@ -7,7 +7,7 @@ export const Contact = ({ match }: { match: any }) => {
     phone, setPhone, message, setMessage, sendMessage } = contactHook();
   return (
     <div className="fl w-100 gotham primary pb4 ph3-ns ph2">
-      <div className="cf bg-white shadow-2 br4 center pv5 ph4 mt4 mw-custom">
+      <div className="cf bg-white shadow-custom br4 center pv5 ph4 mt4 mw-custom">
         <div className="fl w-100 bl bw3 pl3 pv3 primary">
           <span className="f1-l f2 fw7 db navy gothamMedium">CONTACT ME </span>
           <span className="f4 db navy">Get in touch with me</span>
@@ -83,6 +83,7 @@ export const Contact = ({ match }: { match: any }) => {
                   type="button"
                   onClick={sendMessage}
                 >
+                  <i className="f5 uil uil-message mr2"/>
                   Send Mesage
                 </button>
               </div>

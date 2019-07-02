@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export const Home = () =>  (
         <div className={`fl w-100 primary pb4 ph3-ns ph2`}>
-            <div className="cf tc center w-100 bg-white br4 shadow-2 mt4 pv4 ph4 mw-custom">
+            <div className="cf tc center w-100 bg-white br4 shadow-custom mt4 pv4 ph4 mw-custom">
                 <span className="db center mw6 bg-navy2 gothamMedium  white pa3 f2-ns f4 br3 fw7 pa3 lh-title mv0 tracked-tight">
                         Hello, I am  Rahul Barua
                 </span>

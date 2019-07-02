@@ -1,18 +1,28 @@
 import * as React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import { Icon } from 'office-ui-fabric-react/lib/Icon';
 import Typing from 'react-typing-animation';
 
 const MenuItem = (props: any) => (
-  <Link className={`${props.active ? 'b menuActive primary' : 'mid-gray glow pointer'} f6 f5-ns ttc tracked-mega link dib pv2-ns ph4-ns pv1 ph2`}
-    to={props.path || '/'}
-  >
-    <div className={`b`}>
-      <Icon iconName={props.icon} className="f3-l" /> <br />
-      <span className="ttu tracked"> {props.name}</span>
-    </div>
-  </Link>
+  props.active ?
+    (<span className=" f6 f5-ns ttc tracked-mega link dib pv2-ns ph4-ns pv1 ph2 b menuActive primary pointer">
+      <div className={`b`}>
+        <i className={`f3-l ${props.icon}`}/> <br />
+        <span className="ttu tracked"> {props.name}</span>
+      </div>
+    </span>)
+    :
+    (<Link 
+      className="f6 f5-ns ttc tracked-mega link dib pv2-ns ph4-ns pv1 ph2 mid-gray glow pointer"
+      to={props.path || '/'}
+    >
+      <div className={`b`}>
+        <i className={`f3-l ${props.icon}`}/> <br />
+        <span className="ttu tracked"> {props.name}</span>
+      </div>
+    </Link>)
+
+
 )
 
 
@@ -75,18 +85,18 @@ const layout = ({ history, children, location }: { children: JSX.Element } & Rou
           </div>
         </Link>
         <br />
-        <div className="absolute w-100 bottom-2  tc">
+        <div className="absolute w-100 bottom-2 overflow-x-hidden tc">
           <a href={process.env.REACT_APP_CV_DOWNLOAD_PDF}
-            className="grow  ph3 hover-white sans-serif w-100 db pv2 b bb br button near-white f5"
+            className="grow  ph3 hover-white sans-serif w-100 db pv2 b bb button near-white f5"
             style={{ bottom: '5rem' }}>
-            <i className='im im-download f7'/> DOWNLOAD CV
+            <i className='im im-download f7' /> DOWNLOAD CV
           </a>
-          <div className="f6 pv2 w-100 cf">
-            <a href="https://facebook.com/rahuliation" target="_blank" > <i className='grow hover-white im im-facebook f5 pr3' /></a>
-            <a href="https://twitter.com/rahuliation" target="_blank"> <i className='grow hover-white im im-twitter f5 pr3' /></a>
-            <a href="https://github.com/rahuliation" target="_blank"> <i className='grow hover-white im im-github f5 pr3' /></a>
-            <a href="mailto:mail@rahul.com.bd?Subject=Hello" target="_blank"> <i className='grow hover-white im im-mail f5 pr3' /></a>
-            <a href="skype:rahul.workspace@gmail.com?call" target="_blank"> <i className='grow hover-white im im-skype f5 pr3' /> </a> <br /> <br />
+          <div className="f6 pt2 w-100 cf social-icons">
+            <a href="https://facebook.com/rahuliation" target="_blank" className="ba br-100 tc mr2 hover-bg-white b bw1 hover-navy" > <i className='grow uil uil-facebook-f f5' /></a>
+            <a href="https://twitter.com/rahuliation" target="_blank" className="ba br-100 tc mr2 hover-bg-white b bw1 hover-navy"> <i className='grow uil uil-twitter f5' /></a>
+            <a href="https://github.com/rahuliation" target="_blank" className="ba br-100 tc mr2 hover-bg-white b bw1 hover-navy"> <i className='grow uil uil-github-alt f5' /></a>
+            <a href="mailto:mail@rahul.com.bd?Subject=Hello" target="_blank" className="ba br-100 tc mr2 b bw1 hover-bg-white hover-navy"> <i className='grow uil uil-envelope-alt f5' /></a>
+            <a href="skype:rahul.workspace@gmail.com?call" target="_blank" className="ba br-100 tc bw1 hover-bg-white b hover-navy"> <i className='grow uil uil-chat f5' /> </a> <br /> <br />
           </div>
         </div>
 
@@ -108,13 +118,13 @@ const layoutHooks = (history: any) => {
     {
       key: 'home',
       name: 'Home',
-      icon: 'home',
+      icon: 'uil uil-home',
       path: '/',
     },
     {
       key: 'resume',
       name: 'Resume',
-      icon: 'info',
+      icon: 'uil uil-document-layout-right',
       path: '/resume',
     },
     // {
@@ -132,7 +142,7 @@ const layoutHooks = (history: any) => {
     {
       key: 'contact',
       name: 'Contact',
-      icon: 'Contact',
+      icon: 'uil uil-phone',
       path: '/contact',
     }
   ]);
