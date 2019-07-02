@@ -6,6 +6,8 @@ import { MyLayout } from 'src/Layouts/MyLayout';
 import './App.css';
 
 import './assets/css/unicons.css';
+import './assets/css/devicon.css';
+import './assets/css/devicon-colors.css';
 import { Home } from './Pages/Home';
 import { Resume } from './Pages/Resume';
 import { CV } from './Pages/CV';

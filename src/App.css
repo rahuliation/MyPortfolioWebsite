@@ -248,3 +248,15 @@ p {
   line-height: 36px;
 }
 
+.skill-icons li {
+  display: inline-block;
+  text-align: center;
+  width: 70px; 
+  height: 70px;
+  transition: .3s ease;
+}
+
+.skill-icons li i{
+  line-height: 64px;
+}
+

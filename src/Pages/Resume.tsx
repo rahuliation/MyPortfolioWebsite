@@ -1,11 +1,23 @@
 import * as React from 'react';
 export const Resume = () => {
-  const { experiences, educations } = ResumeHooks();
+  const { experiences, educations, skills } = ResumeHooks();
   return (
     <div className="fl w-100 gotham primary pb4 ph3-ns ph2">
       <div className="cf center w-100 bg-white br4 shadow-custom mt4 pv3 mw-custom">
         <div className="fl w-100 tc mt3 mb4 pt4">
           <span className="f2-ns f3 db grow gothamMedium fw7">Skills</span>
+        </div>
+        <div className="flex flex-wrap pa3">
+          {
+            skills.map(skill => (<div className="w-20 flex-auto  pa2">
+              <article className="bg-white br3 ba b--black-10">
+              <div className="tc pv2 ph3">
+                <i className={`h3 w3 dib f1 ${skill.icon}`} />
+                <h2 className="f5 fw4 gray mt0">{skill.title}</h2>
+              </div>
+            </article></div>))
+          }
+
         </div>
         <p className="pl4 mt2">
           <ul className="list pl0">
@@ -48,7 +60,7 @@ export const Resume = () => {
                     <div className="ph3 pv3 bt b--black-10 bg-white">
                       <span className="db f3-ns f5 pb2 b">{exp.designition}</span>
                       <span className="dt f5-l f7 pb1 b mid-gray">
-                        <span className="dtc  pr1 v-mid"> <i className="uil uil-building f5"/> </span>
+                        <span className="dtc  pr1 v-mid"> <i className="uil uil-building f5" /> </span>
                         <a className="dtc v-mid" href={exp.link} target="_blank">{exp.companyName}</a>
                       </span>
                       <p className="f6 f5-ns mv0 pv3 lh-copy justify">
@@ -85,9 +97,9 @@ export const Resume = () => {
                     <div className="ph3 pv3 bt b--black-10 bg-white">
                       <span className="db f3-ns f5 pb2 b">{edu.degree}</span>
                       <span className="dt f5-l f7 pb1 b mid-gray">
-                        <span className="dtc  pr1 v-mid"><i className="uil uil-building f5"/> </span>
-                        <a className="dtc v-mid" href={edu.link} target="_blank"> 
-                         {edu.institute}
+                        <span className="dtc  pr1 v-mid"><i className="uil uil-building f5" /> </span>
+                        <a className="dtc v-mid" href={edu.link} target="_blank">
+                          {edu.institute}
                         </a>
                       </span>
 
@@ -104,7 +116,7 @@ export const Resume = () => {
                           {
                             edu.board ? (
                               <tr>
-                                <th  className="pr2">Board</th>
+                                <th className="pr2">Board</th>
                                 <td>: {edu.board}</td>
                               </tr>
                             ) : undefined
@@ -112,7 +124,7 @@ export const Resume = () => {
                           {
                             edu.location ? (
                               <tr>
-                                <th  className="pr2">Location</th>
+                                <th className="pr2">Location</th>
                                 <td>: {edu.location}</td>
                               </tr>
                             ) : undefined
@@ -161,6 +173,27 @@ const ResumeHooks = () => {
 
 
 
+  const [skills] = React.useState([
+    {
+      icon: 'devicon-react-original',
+      title: 'ReactJS',
+    },
+    {
+    icon: 'devicon-amazonwebservices-original',
+    title: 'Amazon Web Service',
+  }, {
+    icon: 'devicon-angularjs-plain',
+    title: 'AngularJS',
+  }, {
+    icon: 'devicon-angularjs-plain',
+    title: 'AngularJS',
+  }, {
+    icon: 'devicon-angularjs-plain',
+    title: 'AngularJS',
+  }
+  ]);
+
+
   const [educations] = React.useState([{
     timeline: '2013-2016',
     institute: 'INTERNATIONAL UNIVERSITY OF BUSINESS AGRICULTURE AND TECHNOLOGY (IUBAT)',
@@ -186,5 +219,6 @@ const ResumeHooks = () => {
     location: 'Mirpur, Dhaka, Bangladesh'
   }]);
 
-  return { experiences, educations };
+
+  return { experiences, educations, skills };
 }
