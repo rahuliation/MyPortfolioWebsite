@@ -9,17 +9,16 @@ export const Resume = () => {
         </div>
         <div className="flex flex-wrap pa3">
           {
-            skills.map(skill => (<div className="w-20 flex-auto  pa2">
-              <article className="bg-white br3 ba b--black-10">
-              <div className="tc pv2 ph3">
-                <i className={`h3 w3 dib f1 ${skill.icon}`} />
-                <h2 className="f5 fw4 gray mt0">{skill.title}</h2>
-              </div>
-            </article></div>))
+            skills.map((skill, key) => (<div className="w-20-l w-third-m w-50 flex-auto pa2">
+              <article className="bg-white br3 pa3 ba grow b--black-10 tc"  >
+                <i className={`h3 w3 dib f1-ns f2 ${skill.icon}`} />
+                <h2 className="f4-ns f6 fw4 gray mt0">{skill.title}</h2>
+              </article>
+            </div>))
           }
 
         </div>
-        <p className="pl4 mt2">
+        {/* <p className="pl4 mt2">
           <ul className="list pl0">
             <li> ■ NodeJS, ExpressJS, FeatherJS, SQLize, ES6, Gulp, Webpack, Promise</li>
             <li> ■ ReactJS, Mobx, Mobx State Tree, Recompose, Redux</li>
@@ -39,19 +38,19 @@ export const Resume = () => {
             <li> ■ Object Oriented Concept, Object Oriented Design</li>
             <li> ■ Deepin(regular user), Fedora, CentOS, Ubuntu, OpenSUSE.</li>
           </ul>
-        </p>
+        </p> */}
       </div>
-      <div className="cf center w-100 bg-white br4 shadow-custom mt4 pv3 mw-custom">
+      <div className="cf center w-100 bg-white br4 shadow-custom mt4 pv3 mw-custom" >
         <div className="fl w-100 tc mv3 pt4">
-          <span className="f2-ns f3 gothamMedium fw7 db grow">Work Experience</span>
+          <span className="f2-ns f3 gothamMedium fw7 db grow" data-aos="zoom-in" data-aos-once="true" >Work Experience</span>
         </div>
         <div className="fl pl4 w-100 pv3">
           <section className="timeline-section pv4">
             {
               experiences.map((exp: any) =>
-                (<article className="relative timeline-item ph4">
+                (<article className="relative timeline-item ph4 " data-aos="fade-up" data-aos-once="true">
                   <div className="shadow-custom timeline-body br2">
-                    <span className="db f5 shadow-custom bg-navy2 white pv3 ph3 timeline-date br2">
+                    <span className="db f5 shadow-custom bg-navy2  white pv3 ph3 timeline-date br2" data-aos="">
                       <span className="dt">
                         <span className="dtc ph3"> <i className="f3-l uil uil-calendar-alt white fw6" />   </span>
                         <span className="dtc v-mid fw7 ">{exp.timeline}</span>
@@ -67,7 +66,7 @@ export const Resume = () => {
                         {exp.details}
                       </p>
                       <span className="dt black-70">
-                        <span className="dtc  pr1 v-mid"> <i className="f6 uil uil-map-pin-alt black" /> </span>
+                        <span className="dtc  pr1 v-mid"> <i className="f6 uil uil-location-point black" /> </span>
                         <span className="dtc f5 v-mid">{exp.location}</span>
                       </span>
                     </div>
@@ -80,13 +79,13 @@ export const Resume = () => {
 
       <div className="cf center w-100 br4 bg-white shadow-custom pv3 mt4 mw-custom">
         <div className="fl w-100 tc mv3 pt4">
-          <span className="f2-ns f3 gothamMedium fw7 db grow">Educational Qualification</span>
+          <span className="f2-ns f3 gothamMedium fw7 db grow " data-aos="zoom-in" data-aos-once="true">Educational Qualification</span>
         </div>
         <div className="fl pl4 w-100 pv3">
           <section className="timeline-section pv4">
             {
               educations.map((edu: any) =>
-                (<article className="relative timeline-item ph4 glow ">
+                (<article className="relative timeline-item ph4 glow "  data-aos="fade-up" data-aos-once="true">
                   <div className="shadow-custom timeline-body">
                     <span className="db f5 shadow-custom bg-navy2 white pv3 ph3 timeline-date br2">
                       <span className="dt">
@@ -173,24 +172,69 @@ const ResumeHooks = () => {
 
 
 
-  const [skills] = React.useState([
+  const [skills] = React.useState<Array<{ icon: string, title: string }>>([
     {
-      icon: 'devicon-react-original',
+      icon: 'devicon-javascript-plain colored',
+      title: 'Javascript',
+    }, {
+      icon: 'devicon-nodejs-plain colored',
+      title: 'NodeJS',
+    }, {
+      icon: 'devicon-express-original colored',
+      title: 'Express',
+    }, {
+      icon: 'devicon-react-original colored',
       title: 'ReactJS',
+    }, {
+      icon: 'devicon-meteor-plain colored',
+      title: 'MetorJS'
     },
     {
-    icon: 'devicon-amazonwebservices-original',
-    title: 'Amazon Web Service',
-  }, {
-    icon: 'devicon-angularjs-plain',
-    title: 'AngularJS',
-  }, {
-    icon: 'devicon-angularjs-plain',
-    title: 'AngularJS',
-  }, {
-    icon: 'devicon-angularjs-plain',
-    title: 'AngularJS',
-  }
+      icon: 'devicon-vuejs-plain colored',
+      title: 'VueJS',
+    }, {
+      icon: 'devicon-bootstrap-plain colored',
+      title: 'Bootstrap',
+    }, {
+      icon: 'devicon-php-plain colored',
+      title: 'PHP',
+    }, {
+      icon: 'devicon-laravel-plain colored',
+      title: 'Laravel',
+    }, {
+      icon: 'devicon-java-plain colored',
+      title: 'JAVA',
+    }, {
+      icon: 'devicon-ruby-plain colored',
+      title: 'Ruby'
+    }, {
+      icon: 'devicon-angularjs-plain colored',
+      title: 'AngularJS',
+    }, {
+      icon: 'devicon-mysql-plain colored',
+      title: 'MySQL',
+    }, {
+      icon: 'devicon-postgresql-plain colored',
+      title: 'PostgreSQL',
+    }, {
+      icon: 'devicon-redis-plain colored',
+      title: 'Redis',
+    }, {
+      icon: 'devicon-mongodb-plain colored',
+      title: 'MongoDB'
+    }, {
+      icon: 'devicon-docker-plain colored',
+      title: 'Docker',
+    }, {
+      icon: 'devicon-git-plain colored',
+      title: 'Git',
+    }, {
+      icon: 'devicon-nginx-original colored',
+      title: 'Nginx'
+    }, {
+      icon: 'devicon-linux-plain colored',
+      title: 'Linux'
+    }
   ]);
 
 

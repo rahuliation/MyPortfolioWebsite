@@ -4,7 +4,6 @@ import './assets/css/gotham/style.css';
 import './assets/css/animate.css';
 import { MyLayout } from 'src/Layouts/MyLayout';
 import './App.css';
-
 import './assets/css/unicons.css';
 import './assets/css/devicon.css';
 import './assets/css/devicon-colors.css';

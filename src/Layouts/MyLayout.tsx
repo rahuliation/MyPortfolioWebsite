@@ -21,8 +21,6 @@ const MenuItem = (props: any) => (
         <span className="ttu tracked"> {props.name}</span>
       </div>
     </Link>)
-
-
 )
 
 
@@ -39,7 +37,18 @@ const Menu = (props: any) => (
       }
     </nav>
   </div>
-)
+);
+
+export const Social = (props: { className?: string }) =>  ( <div className={`${props.className} social-icons`}>
+<a href="https://facebook.com/rahuliation" target="_blank" className="ba br-100 tc mr2 hover-bg-white b bw1 hover-navy" > <i className='grow uil uil-facebook-f f5' /></a>
+<a href="https://twitter.com/rahuliation" target="_blank" className="ba br-100 tc mr2 hover-bg-white b bw1 hover-navy"> <i className='grow uil uil-twitter f5' /></a>
+<a href="https://github.com/rahuliation" target="_blank" className="ba br-100 tc mr2 hover-bg-white b bw1 hover-navy"> <i className='grow uil uil-github-alt f5' /></a>
+<a href="mailto:mail@rahul.com.bd?Subject=Hello" target="_blank" className="ba br-100 tc mr2 b bw1 hover-bg-white hover-navy"> <i className='grow uil uil-envelope-alt f5' /></a>
+<a href="skype:rahul.workspace@gmail.com?call" target="_blank" className="ba br-100 tc bw1 hover-bg-white b hover-navy"> <i className='grow uil uil-chat f5' /> </a> <br /> <br />
+</div>)
+
+
+
 const layout = ({ history, children, location }: { children: JSX.Element } & RouteComponentProps) => {
 
   const { menus, animate, scrollRef } = layoutHooks(history);
@@ -65,9 +74,9 @@ const layout = ({ history, children, location }: { children: JSX.Element } & Rou
               <Typing loop={true} className="dib" cursorClassName="white">
                 {
                   [
-                    'ReactJS.',
                     'NodeJS.',
                     'ExpressJS.',
+                    'ReactJS.',
                     'FeatherJS.',
                     'VueJS.',
                     'PHP, Laravel.'
@@ -91,20 +100,11 @@ const layout = ({ history, children, location }: { children: JSX.Element } & Rou
             style={{ bottom: '5rem' }}>
             <i className='im im-download f7' /> DOWNLOAD CV
           </a>
-          <div className="f6 pt2 w-100 cf social-icons">
-            <a href="https://facebook.com/rahuliation" target="_blank" className="ba br-100 tc mr2 hover-bg-white b bw1 hover-navy" > <i className='grow uil uil-facebook-f f5' /></a>
-            <a href="https://twitter.com/rahuliation" target="_blank" className="ba br-100 tc mr2 hover-bg-white b bw1 hover-navy"> <i className='grow uil uil-twitter f5' /></a>
-            <a href="https://github.com/rahuliation" target="_blank" className="ba br-100 tc mr2 hover-bg-white b bw1 hover-navy"> <i className='grow uil uil-github-alt f5' /></a>
-            <a href="mailto:mail@rahul.com.bd?Subject=Hello" target="_blank" className="ba br-100 tc mr2 b bw1 hover-bg-white hover-navy"> <i className='grow uil uil-envelope-alt f5' /></a>
-            <a href="skype:rahul.workspace@gmail.com?call" target="_blank" className="ba br-100 tc bw1 hover-bg-white b hover-navy"> <i className='grow uil uil-chat f5' /> </a> <br /> <br />
-          </div>
+          <Social className="f6 pt3 w-100 cf" />
         </div>
-
       </div>
       <div className="fl w-100 mbody bg-white2 ">
-        <Menu
-          menus={menus}
-        />
+        <Menu menus={menus} />
         <div className={`fl w-100 ${animate} animated`} ref={scrollRef}>
           {children}
         </div>
@@ -136,7 +136,7 @@ const layoutHooks = (history: any) => {
     // {
     //   key: 'portfolio',
     //   name: 'Portfolio',
-    //   icon: 'Work',
+    //   icon: 'uil uil-suitcase-alt',
     //   path: '/portfolio',
     // },
     {

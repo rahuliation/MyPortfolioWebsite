@@ -1,6 +1,6 @@
 import * as React from 'react';
 import fetch from 'unfetch'
-
+import { Social }  from '../Layouts/MyLayout'
 
 export const Contact = ({ match }: { match: any }) => {
   const { name, setName, email, setEmail,
@@ -16,23 +16,33 @@ export const Contact = ({ match }: { match: any }) => {
           <div className="fl w-50-l w-100">
             <span className="db tracked pv2 b mid-gray f3 bb w-70 b--mid-gray">Contact Information</span>
             <p className="f5 gotham pl3  mid-gray">
-              <span className="db pt3">
-                <span className="b pr1">Address:</span>Uttara, Dhaka</span>
-              <span className="db pt3">
-                <span className="b pr1">Phone:</span>+880 1777 991622</span>
-              <span className="db pt3">
-                <span className="b pr1">Email:</span>mail@rahul.com.bd</span>
-              <span className="db pt3">
-                <span className="b pr1">Website:</span>www.rahul.com.bd
-              </span>
+              <table className="tl mb4">
+                <tr>
+                  <th className="pr2">Phone</th>
+                  <td>: +880 1777 991622</td>
+                </tr>
+                <tr>
+                  <th className="pr2">Address</th>
+                  <td>: Uttara, Dhaka</td>
+                </tr>
+                <tr className="pr2">
+                  <th>Email</th>
+                  <td>: mail@rahul.com.bd</td>
+                </tr>
+                <tr className="pr2">
+                  <th>Website</th>
+                  <td>: www.rahul.com.bd</td>
+                </tr>
+              </table>
+              <Social />
             </p>
           </div>
           <div className="fl w-50-l w-100 mid-gray">
             <span className="db pv2 tracked bb mid-gray f3 b w-70 b--mid-gray">Send Me Message</span>
             <form action="sign-up_submit" method="get" accept-charset="utf-8">
-              <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
+              <fieldset id="sign_up" className="ba b--transparent ph0 mh0 br3">
                 <div className="mt3">
-                  <span className="db pb2 fw5">Your Name: </span>
+                  <span className="db pb2 fw6 black-70 roboto">Your Name</span>
                   <input
                     value={name}
                     onChange={e => setName(e.target.value)}
@@ -43,7 +53,7 @@ export const Contact = ({ match }: { match: any }) => {
                   />
                 </div>
                 <div className="mt3">
-                  <span className="db pb2">Your Email Address: </span>
+                  <span className="db pb2 fw6 black-70 roboto">Your Email Address</span>
                   <input
                     className="w-100 pa2 input-reset bg-transparent form-control"
                     type="email"
@@ -54,7 +64,7 @@ export const Contact = ({ match }: { match: any }) => {
                   />
                 </div>
                 <div className="mt3">
-                  <span className="db pb2">Your Phone Number: </span>
+                  <span className="db pb2 fw6 black-70 roboto">Your Phone Number</span>
                   <input
                     className="w-100 pa2 input-reset bg-transparent form-control"
                     type="text"
@@ -66,7 +76,7 @@ export const Contact = ({ match }: { match: any }) => {
                   />
                 </div>
                 <div className="mt3">
-                  <span className="db pb2">Any Message </span>
+                  <span className="db pb2 fw6 black-70 roboto">Any Message </span>
                   <textarea
                     className="w-100 pa2 input-reset bg-transparent form-control"
                     name="message"
@@ -83,7 +93,7 @@ export const Contact = ({ match }: { match: any }) => {
                   type="button"
                   onClick={sendMessage}
                 >
-                  <i className="f5 uil uil-message mr2"/>
+                  <i className="f5 uil uil-message mr2" />
                   Send Mesage
                 </button>
               </div>
@@ -103,7 +113,7 @@ const contactHook = () => {
   const [phone, setPhone] = React.useState('');
 
   const sendMessage = async () => {
-    const data  =  { name, _replyto: email, phone, message, _after: 'https://www.rahul.com.bd/contact' };
+    const data = { name, _replyto: email, phone, message, _after: 'https://www.rahul.com.bd/contact' };
     try {
       const res = await fetch('https://mailthis.to/rahul.workspace@gmail.com', {
         method: 'POST',
@@ -112,13 +122,9 @@ const contactHook = () => {
         },
         body: JSON.stringify(data)
       });
-      const lol = await res.text(); 
+      await res.text();
       // tslint:disable-next-line:no-console
       location.href = 'https://mailthis.to/confirm'
-
-      // tslint:disable-next-line:no-console
-      console.log(lol);
-
     } catch (error) {
       // tslint:disable-next-line:no-console
       console.log(error);
@@ -126,6 +132,6 @@ const contactHook = () => {
   }
   return {
     name, setName, email, setEmail,
-    phone, setPhone, message, setMessage , sendMessage
+    phone, setPhone, message, setMessage, sendMessage
   };
 }
