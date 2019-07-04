@@ -9,7 +9,7 @@ export const Resume = () => {
         </div>
         <div className="flex flex-wrap pa3">
           {
-            skills.map((skill, key) => (<div className="w-20-l w-third-m w-50 flex-auto pa2">
+            skills.map((skill, key) => (<div className="w-20-l w-third-m w-50 flex-auto pa2" key={key}>
               <article className="bg-white br3 pa3 ba grow b--black-10 tc"  >
                 <i className={`h3 w3 dib f1-ns f2 ${skill.icon}`} />
                 <h2 className="f4-ns f6 fw4 gray mt0">{skill.title}</h2>
@@ -18,37 +18,24 @@ export const Resume = () => {
           }
 
         </div>
-        {/* <p className="pl4 mt2">
-          <ul className="list pl0">
-            <li> ■ NodeJS, ExpressJS, FeatherJS, SQLize, ES6, Gulp, Webpack, Promise</li>
-            <li> ■ ReactJS, Mobx, Mobx State Tree, Recompose, Redux</li>
-            <li> ■ VueJS, Vuex, Vue-Material </li>
-            <li> ■ Ruby on Rails with many Ruby gem like CanCan, Devise, Carrierwave</li>
-            <li> ■ Laravel With its External Packages.</li>
-            <li> ■ Google map API, Distance Matrix API, Place API, Direction API,
-            SSL E-commerce, Alipay, Stripe, SSLWirless Sms gateway. Youtube data API, Firebase Push Notification</li>
-            <li> ■ Laravel With its External Packages.</li>
-            <li> ■ CakePHP, bake Console. </li>
-            <li> ■ RESTFUL API, 0Auth, Auth2, WebSocket, Graphql</li>
-            <li> ■ Curl, Request Tols, Data Scrapping</li>
-            <li> ■ JSON, XML data representation</li>
-            <li> ■ MongoDB, Mysql, PostgreSQL, DynamoDB, Redis</li>
-            <li> ■ DigitalOcean, VPS Maintenance, Heroku CLoud, SSH Connection, FTP/SFTP, DNS Server Setup</li>
-            <li> ■ Docker, Vagrant, Git, ,Trello, Slack and many DevOps Tools</li>
-            <li> ■ Object Oriented Concept, Object Oriented Design</li>
-            <li> ■ Deepin(regular user), Fedora, CentOS, Ubuntu, OpenSUSE.</li>
-          </ul>
-        </p> */}
       </div>
       <div className="cf center w-100 bg-white br4 shadow-custom mt4 pv3 mw-custom" >
         <div className="fl w-100 tc mv3 pt4">
-          <span className="f2-ns f3 gothamMedium fw7 db grow" data-aos="zoom-in" data-aos-once="true" >Work Experience</span>
+          <span className="f2-ns f3 gothamMedium fw7 db grow" data-aos="zoom-in" data-aos-once="true" >
+            Work Experience
+          </span>
         </div>
         <div className="fl pl4 w-100 pv3">
           <section className="timeline-section pv4">
             {
-              experiences.map((exp: any) =>
-                (<article className="relative timeline-item ph4 " data-aos="fade-up" data-aos-once="true">
+              experiences.map((exp: any, key) =>
+                (<article
+                  className="relative timeline-item ph4 "
+                  data-aos="fade-up"
+                  data-aos-once="true"
+                  data-aos-duration="750"
+                  key={key}
+                >
                   <div className="shadow-custom timeline-body br2">
                     <span className="db f5 shadow-custom bg-navy2  white pv3 ph3 timeline-date br2" data-aos="">
                       <span className="dt">
@@ -79,13 +66,25 @@ export const Resume = () => {
 
       <div className="cf center w-100 br4 bg-white shadow-custom pv3 mt4 mw-custom">
         <div className="fl w-100 tc mv3 pt4">
-          <span className="f2-ns f3 gothamMedium fw7 db grow " data-aos="zoom-in" data-aos-once="true">Educational Qualification</span>
+          <span
+            className="f2-ns f3 gothamMedium fw7 db grow "
+            data-aos="zoom-in"
+            data-aos-once="true"
+          >
+            Educational Qualification
+          </span>
         </div>
         <div className="fl pl4 w-100 pv3">
           <section className="timeline-section pv4">
             {
-              educations.map((edu: any) =>
-                (<article className="relative timeline-item ph4 glow "  data-aos="fade-up" data-aos-once="true">
+              educations.map((edu: any, key) =>
+                (<article
+                  className="relative timeline-item ph4 glow "
+                  data-aos="fade-up"
+                  data-aos-once="true"
+                  data-aos-duration="750"
+                  key={key}
+                >
                   <div className="shadow-custom timeline-body">
                     <span className="db f5 shadow-custom bg-navy2 white pv3 ph3 timeline-date br2">
                       <span className="dt">

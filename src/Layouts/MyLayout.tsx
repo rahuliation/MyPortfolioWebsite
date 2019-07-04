@@ -18,19 +18,20 @@ const MenuItem = (props: any) => (
     >
       <div className={`b`}>
         <i className={`f3-l ${props.icon}`}/> <br />
-        <span className="ttu tracked"> {props.name}</span>
+        <span className="ttu tracked-mega"> {props.name}</span>
       </div>
     </Link>)
 )
 
 
 const Menu = (props: any) => (
-  <div ref={props.ref} className="w-100 bg-white shadow-2  navy mmenu pv2">
+  <div className="w-100 bg-white shadow-2 navy mmenu pv2">
     <nav className="tc mw7 center">
       {
-        props.menus.map((menu: any) => (
+        props.menus.map((menu: any, key: number) => (
           <MenuItem
             {...menu}
+            key={key}
             active={location.pathname === menu.path}
           />
         ))
@@ -39,36 +40,53 @@ const Menu = (props: any) => (
   </div>
 );
 
-export const Social = (props: { className?: string }) =>  ( <div className={`${props.className} social-icons`}>
-<a href="https://facebook.com/rahuliation" target="_blank" className="ba br-100 tc mr2 hover-bg-white b bw1 hover-navy" > <i className='grow uil uil-facebook-f f5' /></a>
-<a href="https://twitter.com/rahuliation" target="_blank" className="ba br-100 tc mr2 hover-bg-white b bw1 hover-navy"> <i className='grow uil uil-twitter f5' /></a>
-<a href="https://github.com/rahuliation" target="_blank" className="ba br-100 tc mr2 hover-bg-white b bw1 hover-navy"> <i className='grow uil uil-github-alt f5' /></a>
-<a href="mailto:mail@rahul.com.bd?Subject=Hello" target="_blank" className="ba br-100 tc mr2 b bw1 hover-bg-white hover-navy"> <i className='grow uil uil-envelope-alt f5' /></a>
-<a href="skype:rahul.workspace@gmail.com?call" target="_blank" className="ba br-100 tc bw1 hover-bg-white b hover-navy"> <i className='grow uil uil-chat f5' /> </a> <br /> <br />
+export const Social = (props: { className?: string, hoverClass?: string }) =>  ( <div className={`${props.className} social-icons`}>
+{[{
+  href: 'https://facebook.com/rahuliation',
+  icon: 'uil uil-facebook-f'
+},
+{
+  href: 'https://twitter.com/rahuliation',
+  icon: 'uil uil-twitter'
+},
+{
+  href: 'https://github.com/rahuliation',
+  icon: 'uil uil-github-alt'
+},
+{
+  href: 'mailto:mail@rahul.com.bd?Subject=Hello',
+  icon: 'uil uil-envelope-alt'
+},
+{
+  href: 'skype:rahul.workspace@gmail.com?call',
+  icon: 'uil uil-chat'
+}
+].map((val, key) => (<a href={val.href} 
+target="_blank" 
+className={`ba br-100 tc mr2 ${props.hoverClass}  b bw1 `}
+key={key}
+> 
+<i className={`grow ${val.icon} f5`} />
+</a>))}
 </div>)
-
-
 
 const layout = ({ history, children, location }: { children: JSX.Element } & RouteComponentProps) => {
 
-  const { menus, animate, scrollRef } = layoutHooks(history);
+  const { menus, scrollRef, scrollRef2 } = layoutHooks(history);
 
   return (
     <div className="fl w-100 bg-white2" dir="ltr">
       <div
-        className="pv4 bg-navy2 near-white pv6-l fixed w-25-l w-100 vh-100 sidebar"
+        className="pv4 ph2 bg-navy2 near-white pv6-l fixed w-25-l w-100 vh-100 sidebar"
       >
-        <Link to="/">
           <div className="w4-ns w4 center mb3">
             <img className="br-100 profilePic" src="/profilepic.jpg" alt="Rahul" />
           </div>
           <div className="tc" style={{ fontFamily: 'Viga, sans-serif', fontWeight: 300 }}>
-            <span className="f1" >Rahul Barua</span>
+            <span className="f1-ns f3" >Rahul Barua</span>
             <br />
-            <span className="f3 pv0">
-              Software Engineer
-            </span>
-            <div className="mt5-l mt4-m mt2 tc f2-ns f3 pv0">
+            <span className="f3-ns f5 pv0"> Software Engineer </span>
+            <div className="mt5-l mt4-m mt3 tc f2-ns f3 pv0 hidden-h400">
               <span className="f3-ns f4">I work with </span>
               <br />
               <Typing loop={true} className="dib" cursorClassName="white">
@@ -92,20 +110,19 @@ const layout = ({ history, children, location }: { children: JSX.Element } & Rou
               </Typing>
             </div>
           </div>
-        </Link>
         <br />
-        <div className="absolute w-100 bottom-2 overflow-x-hidden tc">
+        <div className="absolute hidden-h700 w-100 bottom-2 overflow-x-hidden tc">
           <a href={process.env.REACT_APP_CV_DOWNLOAD_PDF}
             className="grow  ph3 hover-white sans-serif w-100 db pv2 b bb button near-white f5"
             style={{ bottom: '5rem' }}>
             <i className='im im-download f7' /> DOWNLOAD CV
           </a>
-          <Social className="f6 pt3 w-100 cf" />
+          <Social className="f6 pt3 w-100 cf" hoverClass="hover-bg-white hover-navy" />
         </div>
       </div>
-      <div className="fl w-100 mbody bg-white2 ">
+      <div className="fl w-100 mbody bg-white2 " ref={scrollRef}>
         <Menu menus={menus} />
-        <div className={`fl w-100 ${animate} animated`} ref={scrollRef}>
+        <div className="fl w-100 fadeIn animated" ref={scrollRef2} >
           {children}
         </div>
       </div>
@@ -133,12 +150,12 @@ const layoutHooks = (history: any) => {
     //   icon: 'Handwriting',
     //   path: '/blog',
     // },
-    // {
-    //   key: 'portfolio',
-    //   name: 'Portfolio',
-    //   icon: 'uil uil-suitcase-alt',
-    //   path: '/portfolio',
-    // },
+    {
+      key: 'portfolio',
+      name: 'Portfolio',
+      icon: 'uil uil-suitcase-alt',
+      path: '/portfolio',
+    },
     {
       key: 'contact',
       name: 'Contact',
@@ -147,13 +164,22 @@ const layoutHooks = (history: any) => {
     }
   ]);
   const scrollRef = React.useRef<any>(null) // Hook to ref object
+  const scrollRef2 = React.useRef<any>(null) // Hook to ref object
 
-  const [animate] = React.useState('fadeIn');
+
   history.listen((res: any) => {
     if (scrollRef.current && scrollRef.current.offsetTop) {
-      window.scrollTo(0, window.innerHeight);
+      window.scrollTo({
+        top: scrollRef.current.offsetTop,
+        behavior: 'smooth',
+      });
+    } else if(scrollRef2.current && scrollRef2.current.offsetTop){
+      window.scrollTo({
+        top: scrollRef2.current.offsetTop,
+        behavior: 'smooth',
+      });
     }
   });
-  return { menus, animate, scrollRef }
+  return { menus, scrollRef, scrollRef2 }
 }
 export const MyLayout = withRouter(layout);

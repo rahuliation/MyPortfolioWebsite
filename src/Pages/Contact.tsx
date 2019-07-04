@@ -19,22 +19,26 @@ export const Contact = ({ match }: { match: any }) => {
               <table className="tl mb4">
                 <tr>
                   <th className="pr2">Phone</th>
-                  <td>: +880 1777 991622</td>
+                  <td className="pr3">:</td>
+                  <td>+880 1777 991622</td>
                 </tr>
                 <tr>
                   <th className="pr2">Address</th>
-                  <td>: Uttara, Dhaka</td>
+                  <td className="pr3">:</td>
+                  <td>Uttara, Dhaka</td>
                 </tr>
-                <tr className="pr2">
-                  <th>Email</th>
-                  <td>: mail@rahul.com.bd</td>
+                <tr>
+                  <th className="pr2">Email</th>
+                  <td className="pr3">:</td>
+                  <td>mail@rahul.com.bd</td>
                 </tr>
-                <tr className="pr2">
-                  <th>Website</th>
-                  <td>: www.rahul.com.bd</td>
+                <tr>
+                  <th className="pr2">Website</th>
+                  <td className="pr3">:</td>
+                  <td>www.rahul.com.bd</td>
                 </tr>
               </table>
-              <Social />
+              <Social hoverClass="hover-bg-navy hover-white b" />
             </p>
           </div>
           <div className="fl w-50-l w-100 mid-gray">

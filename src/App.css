@@ -260,3 +260,14 @@ p {
   line-height: 64px;
 }
 
+@media only screen and (max-height : 700px) {
+  .hidden-h700 {
+    display: none;
+  }
+}
+
+@media only screen and (max-height : 400px) {
+  .hidden-h400 {
+    display: none;
+  }
+}
