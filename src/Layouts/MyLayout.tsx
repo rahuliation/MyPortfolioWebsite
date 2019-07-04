@@ -25,7 +25,7 @@ const MenuItem = (props: any) => (
 
 
 const Menu = (props: any) => (
-  <div className="w-100 bg-white shadow-2 navy mmenu pv2">
+  <div className="w-100 bg-white shadow-2 navy mmenu pv2" ref={props.navRef}>
     <nav className="tc mw7 center">
       {
         props.menus.map((menu: any, key: number) => (
@@ -72,7 +72,7 @@ key={key}
 
 const layout = ({ history, children, location }: { children: JSX.Element } & RouteComponentProps) => {
 
-  const { menus, scrollRef, scrollRef2 } = layoutHooks(history);
+  const { menus, scrollRef, scrollRef2, navRef } = layoutHooks(history);
 
   return (
     <div className="fl w-100 bg-white2" dir="ltr">
@@ -120,8 +120,8 @@ const layout = ({ history, children, location }: { children: JSX.Element } & Rou
           <Social className="f6 pt3 w-100 cf" hoverClass="hover-bg-white hover-navy" />
         </div>
       </div>
-      <div className="fl w-100 mbody bg-white2 " ref={scrollRef}>
-        <Menu menus={menus} />
+      <div className="fl w-100 mbody bg-white2 "  ref={scrollRef} >
+        <Menu menus={menus} navRef={navRef} />
         <div className="fl w-100 fadeIn animated" ref={scrollRef2} >
           {children}
         </div>
@@ -165,6 +165,7 @@ const layoutHooks = (history: any) => {
   ]);
   const scrollRef = React.useRef<any>(null) // Hook to ref object
   const scrollRef2 = React.useRef<any>(null) // Hook to ref object
+  const navRef = React.useRef<any>(null) // Hook to ref object
 
 
   history.listen((res: any) => {
@@ -174,12 +175,14 @@ const layoutHooks = (history: any) => {
         behavior: 'smooth',
       });
     } else if(scrollRef2.current && scrollRef2.current.offsetTop){
+      // tslint:disable-next-line:no-console
+      console.log(navRef.current);
       window.scrollTo({
-        top: scrollRef2.current.offsetTop,
+        top: scrollRef2.current.offsetTop - navRef.current.offsetHeight,
         behavior: 'smooth',
       });
     }
   });
-  return { menus, scrollRef, scrollRef2 }
+  return { menus, scrollRef, scrollRef2, navRef }
 }
 export const MyLayout = withRouter(layout);

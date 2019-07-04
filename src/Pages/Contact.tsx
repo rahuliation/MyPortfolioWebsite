@@ -46,7 +46,7 @@ export const Contact = ({ match }: { match: any }) => {
             <form action="sign-up_submit" method="get" accept-charset="utf-8">
               <fieldset id="sign_up" className="ba b--transparent ph0 mh0 br3">
                 <div className="mt3">
-                  <span className="db pb2 fw6 black-70 roboto">Your Name</span>
+                  <span className="db pb2 fw6 black-50 roboto">Your Name</span>
                   <input
                     value={name}
                     onChange={e => setName(e.target.value)}
@@ -57,7 +57,7 @@ export const Contact = ({ match }: { match: any }) => {
                   />
                 </div>
                 <div className="mt3">
-                  <span className="db pb2 fw6 black-70 roboto">Your Email Address</span>
+                  <span className="db pb2 fw6 black-50 roboto">Your Email Address</span>
                   <input
                     className="w-100 pa2 input-reset bg-transparent form-control"
                     type="email"
@@ -68,7 +68,7 @@ export const Contact = ({ match }: { match: any }) => {
                   />
                 </div>
                 <div className="mt3">
-                  <span className="db pb2 fw6 black-70 roboto">Your Phone Number</span>
+                  <span className="db pb2 fw6 black-50 roboto">Your Phone Number</span>
                   <input
                     className="w-100 pa2 input-reset bg-transparent form-control"
                     type="text"
@@ -80,7 +80,7 @@ export const Contact = ({ match }: { match: any }) => {
                   />
                 </div>
                 <div className="mt3">
-                  <span className="db pb2 fw6 black-70 roboto">Any Message </span>
+                  <span className="db pb2 fw6 black-50 roboto">Any Message </span>
                   <textarea
                     className="w-100 pa2 input-reset bg-transparent form-control"
                     name="message"
