@@ -5,7 +5,7 @@ import Typing from 'react-typing-animation';
 
 const MenuItem = (props: any) => (
   props.active ?
-    (<span className=" f6 f5-ns ttc tracked-mega link dib pv2-ns ph4-ns pv1 ph2 b menuActive primary pointer">
+    (<span className="f7 f5-ns ttc tracked-mega link dib pv2-ns ph4-ns mb2 pv1 ph2 b menuActive primary pointer">
       <div className={`b`}>
         <i className={`f3-l ${props.icon}`}/> <br />
         <span className="ttu tracked"> {props.name}</span>
@@ -13,7 +13,7 @@ const MenuItem = (props: any) => (
     </span>)
     :
     (<Link 
-      className="f6 f5-ns ttc tracked-mega link dib pv2-ns ph4-ns pv1 ph2 mid-gray glow pointer"
+      className="f7 f5-ns ttc tracked-mega link dib pv2-ns ph4-ns pv1 ph2 mid-gray glow pointer"
       to={props.path || '/'}
     >
       <div className={`b`}>
@@ -42,12 +42,11 @@ const Menu = (props: any) => (
 
 export const Social = (props: { className?: string, hoverClass?: string }) =>  ( <div className={`${props.className} social-icons`}>
 {[{
+  href: 'https://www.linkedin.com/in/rahul-workspace/',
+  icon: 'uil uil-linkedin-alt'
+},{
   href: 'https://facebook.com/rahuliation',
   icon: 'uil uil-facebook-f'
-},
-{
-  href: 'https://twitter.com/rahuliation',
-  icon: 'uil uil-twitter'
 },
 {
   href: 'https://github.com/rahuliation',
@@ -111,7 +110,7 @@ const layout = ({ history, children, location }: { children: JSX.Element } & Rou
             </div>
           </div>
         <br />
-        <div className="absolute hidden-h700 w-100 bottom-2 overflow-x-hidden tc">
+        <div className="absolute hidden-h500 w-100 bottom-2 overflow-x-hidden tc">
           <a href={process.env.REACT_APP_CV_DOWNLOAD_PDF}
             className="grow  ph3 hover-white sans-serif w-100 db pv2 b bb button near-white f5"
             style={{ bottom: '5rem' }}>

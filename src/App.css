@@ -260,8 +260,8 @@ p {
   line-height: 64px;
 }
 
-@media only screen and (max-height : 700px) {
-  .hidden-h700 {
+@media only screen and (max-height : 500px) {
+  .hidden-h500 {
     display: none;
   }
 }
