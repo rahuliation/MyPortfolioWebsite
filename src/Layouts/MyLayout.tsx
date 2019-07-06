@@ -171,14 +171,10 @@ const layoutHooks = (history: any) => {
     if (scrollRef.current && scrollRef.current.offsetTop) {
       window.scrollTo({
         top: scrollRef.current.offsetTop,
-        behavior: 'smooth',
       });
     } else if(scrollRef2.current && scrollRef2.current.offsetTop){
-      // tslint:disable-next-line:no-console
-      console.log(navRef.current);
       window.scrollTo({
         top: scrollRef2.current.offsetTop - navRef.current.offsetHeight,
-        behavior: 'smooth',
       });
     }
   });
