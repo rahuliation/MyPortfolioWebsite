@@ -3,9 +3,9 @@ import { withRouter, RouteComponentProps } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Typing from 'react-typing-animation';
 
-const MenuItem = (props: any) => (
+const MenuItem = (props: { in?: number, active: boolean, name: string, icon: string, path: string }) => (
   props.active ?
-    (<span className="f7 f5-ns ttc tracked-mega link dib pv2-ns ph4-ns mb2 pv1 ph2 b menuActive primary pointer">
+    (<span className="f7 f5-ns ttc tracked-mega link dib pv2-ns ph4-ns mb2 pv1 ph2 b menuActive primary pointer" key={props.in}>
       <div className={`b`}>
         <i className={`f3-l ${props.icon}`}/> <br />
         <span className="ttu tracked"> {props.name}</span>
@@ -15,6 +15,7 @@ const MenuItem = (props: any) => (
     (<Link 
       className="f7 f5-ns ttc tracked-mega link dib pv2-ns ph4-ns pv1 ph2 mid-gray glow pointer"
       to={props.path || '/'}
+      key={props.in}
     >
       <div className={`b`}>
         <i className={`f3-l ${props.icon}`}/> <br />
@@ -31,7 +32,7 @@ const Menu = (props: any) => (
         props.menus.map((menu: any, key: number) => (
           <MenuItem
             {...menu}
-            key={key}
+            in={key}
             active={location.pathname === menu.path}
           />
         ))

@@ -101,8 +101,8 @@ export const Resume = () => {
                         </a>
                       </span>
 
-                      <p className="tl f7 pv3 f5-ns mv0 lh-copy ">
-                        <table>
+                      <table className="black-50 tl pl3 pv3">
+                        <tbody>
                           {
                             edu.result ? (
                               <tr>
@@ -127,8 +127,8 @@ export const Resume = () => {
                               </tr>
                             ) : undefined
                           }
-                        </table>
-                      </p>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                 </article>))

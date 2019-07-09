@@ -1,6 +1,6 @@
 import * as React from 'react';
 import fetch from 'unfetch'
-import { Social }  from '../Layouts/MyLayout'
+import { Social } from '../Layouts/MyLayout'
 
 export const Contact = ({ match }: { match: any }) => {
   const { name, setName, email, setEmail,
@@ -17,33 +17,35 @@ export const Contact = ({ match }: { match: any }) => {
             <span className="db tracked pv2 b mid-gray f3 bb w-70 b--mid-gray">Contact Information</span>
             <p className="f5 gotham pl3  mid-gray">
               <table className="tl mb4">
-                <tr>
-                  <th className="pr2">Phone</th>
-                  <td className="pr3">:</td>
-                  <td>+880 1777 991622</td>
-                </tr>
-                <tr>
-                  <th className="pr2">Address</th>
-                  <td className="pr3">:</td>
-                  <td>Uttara, Dhaka</td>
-                </tr>
-                <tr>
-                  <th className="pr2">Email</th>
-                  <td className="pr3">:</td>
-                  <td>mail@rahul.com.bd</td>
-                </tr>
-                <tr>
-                  <th className="pr2">Website</th>
-                  <td className="pr3">:</td>
-                  <td>www.rahul.com.bd</td>
-                </tr>
+                <tbody>
+                  <tr>
+                    <th className="pr2">Phone</th>
+                    <td className="pr3">:</td>
+                    <td>+880 1777 991622</td>
+                  </tr>
+                  <tr>
+                    <th className="pr2">Address</th>
+                    <td className="pr3">:</td>
+                    <td>Uttara, Dhaka</td>
+                  </tr>
+                  <tr>
+                    <th className="pr2">Email</th>
+                    <td className="pr3">:</td>
+                    <td>mail@rahul.com.bd</td>
+                  </tr>
+                  <tr>
+                    <th className="pr2">Website</th>
+                    <td className="pr3">:</td>
+                    <td>www.rahul.com.bd</td>
+                  </tr>
+                </tbody>
               </table>
               <Social hoverClass="hover-bg-navy hover-white b" />
             </p>
           </div>
           <div className="fl w-50-l w-100 mid-gray">
             <span className="db pv2 tracked bb mid-gray f3 b w-70 b--mid-gray">Send Me Message</span>
-            <form action="sign-up_submit" method="get" accept-charset="utf-8">
+            <form action="sign-up_submit" method="get" acceptCharset="utf-8">
               <fieldset id="sign_up" className="ba b--transparent ph0 mh0 br3">
                 <div className="mt3">
                   <span className="db pb2 fw6 black-50 roboto">Your Name</span>
