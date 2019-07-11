@@ -15,7 +15,7 @@ export const Contact = ({ match }: { match: any }) => {
         <div className="fl w-100 mt4">
           <div className="fl w-50-l w-100">
             <span className="db tracked pv2 b mid-gray f3 bb w-70 b--mid-gray">Contact Information</span>
-            <p className="f5 gotham pl3  mid-gray">
+            <div className="f5 gotham pl3 pv4  mid-gray p">
               <table className="tl mb4">
                 <tbody>
                   <tr>
@@ -41,7 +41,7 @@ export const Contact = ({ match }: { match: any }) => {
                 </tbody>
               </table>
               <Social hoverClass="hover-bg-navy hover-white b" />
-            </p>
+            </div>
           </div>
           <div className="fl w-50-l w-100 mid-gray">
             <span className="db pv2 tracked bb mid-gray f3 b w-70 b--mid-gray">Send Me Message</span>

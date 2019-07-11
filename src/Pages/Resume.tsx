@@ -101,7 +101,7 @@ export const Resume = () => {
                         </a>
                       </span>
 
-                      <table className="black-50 tl pl3 pv3">
+                      <table className="black-50 p tl pl3 pv3">
                         <tbody>
                           {
                             edu.result ? (

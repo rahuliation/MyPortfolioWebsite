@@ -23,12 +23,30 @@ const layoutHOC = (Component: any): any => () => (
 );
 
 const App = () => {
+
+  const sendMessage = async (token: string | null) => {
+    const data = { token };
+    try {
+      const res = await fetch('https://us-central1-rahulcombd-32ccf.cloudfunctions.net/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      const text = await res.text();
+      // tslint:disable-next-line:no-console
+      console.log(text)
+    } catch (error) {
+      // tslint:disable-next-line:no-console
+      console.log(error);
+    }
+  }
   React.useEffect(() => {
     messaging.requestPermission()
       .then(async () => {
         const token = await messaging.getToken();
-        // tslint:disable-next-line:no-console
-        console.log(token);
+        sendMessage(token)
       })
       .catch((err) => {
         // tslint:disable-next-line:no-console
@@ -36,11 +54,14 @@ const App = () => {
       });
     // tslint:disable-next-line:no-console
     messaging.onMessage((payload) => {
-        // tslint:disable-next-line:no-console
-        console.log(payload);
+      // tslint:disable-next-line:no-console
+      console.log(payload);
     })
     // tslint:disable-next-line:no-console
-    navigator.serviceWorker.addEventListener("message", (message) => console.log(message));
+    navigator.serviceWorker.addEventListener("message", (message) => {
+      // tslint:disable-next-line:no-console
+      console.log('message', message)
+    });
   }, [])
 
   return (

@@ -9,16 +9,26 @@ const messaging = firebase.messaging();
 
 messaging.setBackgroundMessageHandler(function(payload) {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
-  console.log(payload);
+  return self.registration.showNotification( payload.data.title,
+    {
+      body: payload.data.body,
+      icon: '/favicon.ico',
+      vibrate: [200, 100, 200, 100, 200, 100, 200],
+      image: payload.data.image,
+      data: {
+        link: payload.data.link
+      },
+    });
+});
 
-  // Customize notification here
-  var notificationTitle = 'Background Message Title';
-  var notificationOptions = {
-    body: 'Background Message body.',
-    icon: 'http://localhost:3000/favicon.ico'
-  };
+self.addEventListener('notificationclick', function(event) {
+  console.log('On notification click: ', event.notification.data.link);
+  event.notification.close();
 
-//   return self.registration.showNotification(notificationTitle,
-//     notificationOptions);
+  // This looks to see if the current is already open and
+  // focuses if it is
+  if(event.notification.data.link) {
+    event.waitUntil(clients.openWindow(event.notification.data.link));
+  }
 });
 // [END background_handler
