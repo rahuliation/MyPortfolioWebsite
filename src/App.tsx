@@ -43,28 +43,17 @@ const App = () => {
     }
   }
   React.useEffect(() => {
-    if(navigator &&  navigator.serviceWorker) {
-      messaging.requestPermission()
+    if (!messaging) { return};
+
+    messaging.requestPermission()
       .then(async () => {
         const token = await messaging.getToken();
         sendMessage(token)
       })
-      .catch((err) => {
+      .catch((err: any) => {
         // tslint:disable-next-line:no-console
         console.log("Unable to get permission to notify.", err);
-      });
-    // tslint:disable-next-line:no-console
-    messaging.onMessage((payload) => {
-      // tslint:disable-next-line:no-console
-      console.log(payload);
-    })
-    // tslint:disable-next-line:no-console
-    navigator.serviceWorker.addEventListener("message", (message) => {
-      // tslint:disable-next-line:no-console
-      console.log('message', message)
-    });
-    }
-    
+      });    
   }, [])
 
   return (

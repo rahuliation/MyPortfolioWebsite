@@ -3,23 +3,22 @@ import * as cors from 'cors';
 import { Request, Response } from 'express'
 import admin from './admin';
 import * as nodemailer from 'nodemailer';
+const contacts = express();
 
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'rahul.workspace@gmail.com',
-        pass: 'rock807red961'
-    }
+    service: "Yandex",
+        auth: {
+            user: "mail@rahul.com.bd",  // to be replaced by actual username and password
+            pass: "rock807red961"
+        }
 });
-
-const contacts = express();
 
 contacts.use(cors({ origin: true }));
 
 contacts.get('/',  (req: Request, res: Response): void => {
     const mailOptions = {
-        from: 'Your Account Name <rahul.workspace@gmail.com>', // Something like: Jane Doe <janedoe@gmail.com>
-        to: 'rahuliation@gmail.com',
+        from: 'Rahul <mail@rahul.com.bd>', // Something like: Jane Doe <janedoe@gmail.com>
+        to: 'rahul.workspace@gmail.com',
         subject: 'I\'M A PICKLE!!!', // email subject
         html: `<p style="font-size: 16px;">Pickle Riiiiiiiiiiiiiiiick!!</p>
             <br />

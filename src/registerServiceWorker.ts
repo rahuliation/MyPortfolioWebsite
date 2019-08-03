@@ -20,9 +20,6 @@ const isLocalhost = Boolean(
 );
 
 export default function register() {
-  const firebasURL = `${process.env.PUBLIC_URL}/firebase-messaging-sw.js`
-  registerValidSW(firebasURL);
-
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(
@@ -37,6 +34,7 @@ export default function register() {
     }
 
     window.addEventListener('load', () => {
+      const firebasURL = `${process.env.PUBLIC_URL}/firebase-messaging-sw.js`;
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
       if (isLocalhost) {
         // This is running on localhost. Lets check if a service worker still exists or not.
@@ -52,6 +50,9 @@ export default function register() {
         });
       } else {
         // Is not local host. Just register service worker
+        if('Notification' in window) {
+          registerValidSW(firebasURL);
+        }
         registerValidSW(swUrl);
       }
     });
