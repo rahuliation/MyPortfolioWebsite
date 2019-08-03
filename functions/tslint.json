@@ -5,7 +5,6 @@
 
     // Force function overloads to be declared together. This ensures readers understand APIs.
     "adjacent-overload-signatures": true,
-
     // Do not allow the subtle/obscure comma operator.
     "ban-comma-operator": true,
 
@@ -66,7 +65,7 @@
     "no-unsafe-finally": true,
 
     // Expressions must always return a value. Avoids common errors like const myValue = functionReturningVoid();
-    "no-void-expression": [true, "ignore-arrow-function-shorthand"],
+    "no-void-expression": false,
 
     // Disallow duplicate imports in the same file.
     "no-duplicate-imports": true,

@@ -12,7 +12,7 @@ messaging.setBackgroundMessageHandler(function(payload) {
   return self.registration.showNotification( payload.data.title,
     {
       body: payload.data.body,
-      icon: '/favicon.ico',
+      icon: '/favi.ico',
       vibrate: [200, 100, 200, 100, 200, 100, 200],
       image: payload.data.image,
       data: {

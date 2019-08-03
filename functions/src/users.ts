@@ -5,21 +5,18 @@ import admin from './admin';
 const users = express();
 
 users.use(cors({ origin: true }));
-users.get('/:id', (req: Request, res: Response): any => res.send('www'));
 users.post('/', async (req: Request, res: Response) => {
     const token = req.body.token;
     try {
         const response = await admin.messaging()
-            .subscribeToTopic([token], 'update')
-        if (response) {
-            res.json(response);
+            .subscribeToTopic([token], 'update');
+        const snapshot = await admin.database().ref('/tokenList').push({ token });
+        if (response && snapshot) {
+            res.json('success');
         }
     } catch (error) {
         res.json(error);
     }
 });
-users.put('/:id', (req: Request, res: Response): any => res.send('www'));
-users.delete('/:id', (req: Request, res: Response): any => res.send('www'));
-users.get('/', (req: Request, res: Response): any => res.send('www'));
 
 export default users

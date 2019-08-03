@@ -27,7 +27,7 @@ const App = () => {
   const sendMessage = async (token: string | null) => {
     const data = { token };
     try {
-      const res = await fetch('https://us-central1-rahulcombd-32ccf.cloudfunctions.net/users', {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -43,7 +43,8 @@ const App = () => {
     }
   }
   React.useEffect(() => {
-    messaging.requestPermission()
+    if(navigator &&  navigator.serviceWorker) {
+      messaging.requestPermission()
       .then(async () => {
         const token = await messaging.getToken();
         sendMessage(token)
@@ -62,6 +63,8 @@ const App = () => {
       // tslint:disable-next-line:no-console
       console.log('message', message)
     });
+    }
+    
   }, [])
 
   return (

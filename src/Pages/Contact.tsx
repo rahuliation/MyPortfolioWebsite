@@ -4,7 +4,7 @@ import { Social } from '../Layouts/MyLayout'
 
 export const Contact = ({ match }: { match: any }) => {
   const { name, setName, email, setEmail,
-    phone, setPhone, message, setMessage, sendMessage } = contactHook();
+    phone, setPhone, message, setMessage, sendMessage, validate } = contactHook();
   return (
     <div className="fl w-100 gotham primary pb4 ph3-ns ph2">
       <div className="cf bg-white shadow-custom br4 center pv5 ph4 mt4 mw-custom">
@@ -98,6 +98,7 @@ export const Contact = ({ match }: { match: any }) => {
                   className="b br3 ph4 bg-navy2 white pv3 hover-bg-white  hover-navy input-reset ba grow pointer f5"
                   type="button"
                   onClick={sendMessage}
+                  disabled={validate}
                 >
                   <i className="f5 uil uil-message mr2" />
                   Send Mesage
@@ -117,11 +118,26 @@ const contactHook = () => {
   const [email, setEmail] = React.useState('');
   const [message, setMessage] = React.useState('');
   const [phone, setPhone] = React.useState('');
+  const [validate, setValidation] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    if (name === "") {
+       setValidation(false);
+       return;
+    } else if(email === "") {
+      setValidation(false);
+      return;
+    } else if(message === "") {
+      setValidation(false);
+      return;
+    }
+
+  }, [name, email, message, phone])
 
   const sendMessage = async () => {
-    const data = { name, _replyto: email, phone, message, _after: 'https://www.rahul.com.bd/contact' };
+    const data = { name, email, phone, message, _after: 'https://www.rahul.com.bd/contact' };
     try {
-      const res = await fetch('https://mailthis.to/rahul.workspace@gmail.com', {
+      const res = await fetch(`https://mailthis.to/rahul.workspace@gmail.com`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -136,8 +152,9 @@ const contactHook = () => {
       console.log(error);
     }
   }
+
   return {
     name, setName, email, setEmail,
-    phone, setPhone, message, setMessage, sendMessage
+    phone, setPhone, message, setMessage, sendMessage, validate
   };
 }
