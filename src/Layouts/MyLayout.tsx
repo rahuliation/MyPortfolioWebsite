@@ -83,7 +83,7 @@ const layout = ({ history, children, location }: { children: JSX.Element } & Rou
             <img className="br-100 profilePic" src="/profilepic.jpg" alt="Rahul" />
           </div>
           <div className="tc" style={{ fontFamily: 'Viga, sans-serif', fontWeight: 300 }}>
-            <span className="f1-ns f3" >Rahul Barua</span>
+            <span className="f1-ns f3" >Rahul Islam</span>
             <br />
             <span className="f3-ns f5 pv0"> Software Engineer </span>
             <div className="mt5-l mt4-m mt3 tc f2-ns f3 pv0 hidden-h400">
@@ -93,6 +93,7 @@ const layout = ({ history, children, location }: { children: JSX.Element } & Rou
                 {
                   [
                     'NodeJS.',
+                    'Graphql.',
                     'ExpressJS.',
                     'ReactJS.',
                     'FeatherJS.',

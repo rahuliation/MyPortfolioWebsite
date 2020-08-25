@@ -142,19 +142,26 @@ export const Resume = () => {
 
 const ResumeHooks = () => {
   const [experiences] = React.useState([{
-    timeline: 'December, 2018 - Present',
+    timeline: 'June, 2020 - Present',
+    companyName: 'Ixora Solution Limited',
+    designition: 'Sr. Software Engineer',
+    location: 'Uttara, Dhaka, Bangladesh',
+    link: 'https://ixorasolution.com',
+    details: 'Involved in some american project. Here FeatherJS , ReactJS, Mobx are our stacks'
+  }, {
+    timeline: 'December, 2018 - May 2020',
     companyName: 'INVARIANT TELECOM',
     designition: 'Software Engineer',
     location: 'Mohakhali, Dhaka, Bangladesh',
-    link: 'https://www.doctorkoi.com/',
-    details: 'I have already involved in two wonderful service like BUDDY and Wallet Service . Buddy is a ride sharing service and Wallet is a financial service. I contributed myself working with various technology like NodeJS, ExpressJS, MongoDB, VueJS. Build Restfull api and Back office pannels'
+    link: 'https://invarianttele.com/',
+    details: 'I have already involved in 3 wonderful service like Dhamaka Digital, BUDDY and Wallet Service . Dhamaka is Multivendor Ecommerce Solution. Buddy is a ride sharing service and Wallet is a financial service. I contributed myself working with various technology like NodeJS, GraphQL, ExpressJS, MongoDB, VueJS. Build Restfull api and Back office pannels'
   },
   {
     timeline: 'March, 2018 - November, 2018',
     companyName: 'DOCTORKOI SMART',
     designition: 'Full Stack Javascript Developer',
     location: 'Mohammadpur, Dhaka, Bangladesh',
-    link: 'https://invarianttele.com/',
+    link: 'https://www.doctorkoi.com/',
     details: 'Doctorkoi SMART is prescription management software that helps Doctors to generate prescriptions within just few clicks. It requires few seconds to prepare a full prescription by using SMART. Doctors can customize prescription according to their needs. Medicines can be selected from 26,000+ registered drug lists. So there is no chance to make any mistake. I worked as a full stack javascript developer. ReactJS, Featherjs, ElectronJS and many more things are used'
   },
   {
