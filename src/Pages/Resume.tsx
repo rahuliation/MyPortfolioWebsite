@@ -178,7 +178,7 @@ const ResumeHooks = () => {
 
 
 
-  const [skills] = React.useState<Array<{ icon: string, title: string }>>([
+  const [skills] = React.useState<{ icon: string, title: string }[]>([
     {
       icon: 'devicon-javascript-plain colored',
       title: 'Javascript',

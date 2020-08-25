@@ -4,7 +4,7 @@ export const Home = () =>  (
         <div className={`fl w-100 primary pb4 ph3-ns ph2`}>
             <div className="cf tc center w-100 bg-white br4 shadow-custom mt4 pv5 ph4 mw-custom">
                 <span className="db center mw6 bg-navy2 gothamMedium  white pa3 f2-ns f4 br3 fw7 pa3 lh-title mv0 tracked-tight">
-                        Hello, I am  Rahul Barua
+                        Hello, I am  Rahul Islam
                 </span>
                 <span className="db pb3 f3-l f4-m f5 mt5 fw1 i mid-gray">A Full Stack <b>NodeJS and ReactJS</b>  Web/Software Developer</span>
                 <span className="db f5 gotham tracked black-80"> <i className="im im-location f6" /> Dhaka, Bangladesh.</span>
