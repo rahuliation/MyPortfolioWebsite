@@ -92,7 +92,7 @@ const layout = ({
       <div className="pv4 ph2 bg-navy2 near-white pv6-l fixed w-25-l w-100 vh-100 sidebar">
         <div className="w4-ns w4 center mb3">
           <img
-            className="br-100 profilePic"
+            className="profilePic"
             src="/profilepic.jpg"
             alt="Rahul"
           />
